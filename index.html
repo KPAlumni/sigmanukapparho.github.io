@@ -2,14 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>Kappa Rho 40th Anniversary</title>
   <style>
-    body {
-      margin: 0;
-      background-color: #111;
+    margin: 0;
+      background: radial-gradient(circle at top left, #111 0%, #000 100%);
+      animation: subtleShift 20s ease-in-out infinite alternate;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       font-family: 'Segoe UI', sans-serif;
-      color: #f5f5f5;
     }
+
+    @keyframes subtleShift {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
+    .tier a.button:hover {
+      box-shadow: 0 0 12px gold;
+      transform: scale(1.05);
+      transition: 0.2s ease-in-out;
 
     header {
       text-align: center;
@@ -20,6 +34,9 @@
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
       color: gold;
+      background: linear-gradient(90deg, gold, orange);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     p.subtitle {
@@ -85,6 +102,31 @@
       font-size: 0.9rem;
     }
 
+    @media (max-width: 768px) {
+      .tiers {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+      }
+    
+      .tier {
+        width: 90%;
+      }
+    
+      h1 {
+        font-size: 1.8rem;
+      }
+    
+      .tier .price {
+        font-size: 1.1rem;
+      }
+    
+      .tier a.button {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -95,7 +137,7 @@
 </header>
 
 <section class="tiers">
-  <div class="tier">
+  <div class="tier" data-aos="fade-up" data-aos-delay="100">
     <img src="tier-basic.png" alt="Basic Tier">
     <h2>Basic Tier</h2>
     <ul>
@@ -107,7 +149,7 @@
     <a class="button" href="#">Reserve</a>
   </div>
 
-  <div class="tier">
+  <div class="tier" data-aos="fade-up" data-aos-delay="200">
     <img src="tier-middle.png" alt="Middle Tier">
     <h2>Middle Tier (Snake)</h2>
     <ul>
@@ -120,7 +162,7 @@
     <a class="button" href="#">Reserve</a>
   </div>
 
-  <div class="tier">
+  <div class="tier" data-aos="fade-up" data-aos-delay="300">
     <img src="tier-premium.png" alt="Premium Tier">
     <h2>Premium Tier (Chapter Eternal)</h2>
     <ul>
@@ -136,6 +178,11 @@
 <footer>
   © 2025 Kappa Rho Legacy Foundation. All rights reserved.
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
 </body>
 </html>
