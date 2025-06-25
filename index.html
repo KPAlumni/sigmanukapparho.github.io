@@ -287,23 +287,33 @@
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1200,
-      once: true,
-      easing: 'ease-out-back'
-    });
-
-   // Fix: get the element directly from event.detail
-  document.addEventListener('aos:in', function(event) {
-    const el = event.detail;
-    if (el.id === 'premium-tier') {
-      el.classList.add('glow-on-load');
-      setTimeout(() => {
-        el.classList.remove('glow-on-load');
-      }, 1500);
-    }
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true,
+    easing: 'ease-out-back'
   });
-  </script>
+
+  const premium = document.getElementById('premium-tier');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          premium.classList.add('glow-on-load');
+          setTimeout(() => {
+            premium.classList.remove('glow-on-load');
+          }, 1500);
+        }
+      });
+    },
+    {
+      threshold: 0.6 // triggers when 60% of premium is in view
+    }
+  );
+
+  observer.observe(premium);
+</script>
+
 </body>
 </html>
