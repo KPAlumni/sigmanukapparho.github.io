@@ -23,9 +23,9 @@ body::before {
   height: 600px;
   top: -100px;
   left: -100px;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent 70%);
   filter: blur(100px);
-  animation: driftGold 40s ease-in-out infinite;
+  animation: driftGold 20s ease-in-out infinite;
   z-index: -1;
 }
 
@@ -37,9 +37,9 @@ body::after {
   height: 500px;
   bottom: -100px;
   right: -150px;
-  background: radial-gradient(circle, rgba(0, 100, 255, 0.12), transparent 70%);
+  background: radial-gradient(circle, rgba(0, 100, 255, 0.17), transparent 70%);
   filter: blur(80px);
-  animation: driftBlue 60s ease-in-out infinite;
+  animation: driftBlue 30s ease-in-out infinite;
   z-index: -1;
 }
 
@@ -57,6 +57,49 @@ body::after {
   50%  { transform: translate(-120px, -80px); }
   100% { transform: translate(0, 0); }
 }
+
+    .blob {
+  position: fixed;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* White blob */
+.blob-white {
+  width: 500px;
+  height: 500px;
+  top: 20%;
+  left: 60%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+  filter: blur(80px);
+  animation: driftWhite 25s ease-in-out infinite;
+}
+
+/* Ruby blob */
+.blob-ruby {
+  width: 450px;
+  height: 450px;
+  bottom: 10%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(170, 30, 45, 0.2), transparent 70%);
+  filter: blur(70px);
+  animation: driftRuby 20s ease-in-out infinite;
+}
+
+/* New drift animations */
+@keyframes driftWhite {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-50px, -30px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes driftRuby {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(70px, -60px); }
+  100% { transform: translate(0, 0); }
+}
+
 
 
 
@@ -171,6 +214,9 @@ body::after {
   </style>
 </head>
 <body>
+<div class="blob blob-white"></div>
+<div class="blob blob-ruby"></div>
+
 
 <header>
   <h1>Kappa Rho 40th Anniversary</h1>
