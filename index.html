@@ -1,112 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
   <title>Kappa Rho 40th Anniversary</title>
   <style>
-    body {  
+    body {
       background-color: #000;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
       position: relative;
       overflow-x: hidden;
       z-index: 0;
+      color: #f5f5f5;
+      line-height: 1.6;
     }
 
     /* Golden blob */
-body::before {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  top: -100px;
-  left: -100px;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent 70%);
-  filter: blur(100px);
-  animation: driftGold 20s ease-in-out infinite;
-  z-index: -1;
-}
+    body::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      top: -100px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent 70%);
+      filter: blur(100px);
+      animation: driftGold 20s ease-in-out infinite;
+      z-index: -1;
+    }
 
     /* Blue blob */
-body::after {
-  content: '';
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  bottom: -100px;
-  right: -150px;
-  background: radial-gradient(circle, rgba(0, 100, 255, 0.17), transparent 70%);
-  filter: blur(80px);
-  animation: driftBlue 30s ease-in-out infinite;
-  z-index: -1;
-}
+    body::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      bottom: -100px;
+      right: -150px;
+      background: radial-gradient(circle, rgba(0, 100, 255, 0.17), transparent 70%);
+      filter: blur(80px);
+      animation: driftBlue 30s ease-in-out infinite;
+      z-index: -1;
+    }
 
-
-/* Gold movement */
-@keyframes driftGold {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(100px, 150px); }
-  100% { transform: translate(0, 0); }
-}
-
-    /* Blue movement */
-@keyframes driftBlue {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(-120px, -80px); }
-  100% { transform: translate(0, 0); }
-}
-
+    /* Extra blobs */
     .blob {
-  position: absolute;
-  border-radius: 50%;
-  z-index: -1;
-  pointer-events: none;
-}
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+    }
 
-/* White blob */
-.blob-white {
-  width: 500px;
-  height: 500px;
-  top: 20%;
-  left: 60%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
-  filter: blur(80px);
-  animation: driftWhite 25s ease-in-out infinite;
-}
+    .blob-white {
+      width: 500px;
+      height: 500px;
+      top: 20%;
+      left: 60%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+      filter: blur(80px);
+      animation: driftWhite 25s ease-in-out infinite;
+    }
 
-/* Ruby blob */
-.blob-ruby {
-  width: 450px;
-  height: 450px;
-  bottom: 10%;
-  right: 10%;
-  background: radial-gradient(circle, rgba(170, 30, 45, 0.2), transparent 70%);
-  filter: blur(70px);
-  animation: driftRuby 20s ease-in-out infinite;
-}
+    .blob-ruby {
+      width: 450px;
+      height: 450px;
+      bottom: 10%;
+      right: 10%;
+      background: radial-gradient(circle, rgba(170, 30, 45, 0.2), transparent 70%);
+      filter: blur(70px);
+      animation: driftRuby 20s ease-in-out infinite;
+    }
 
-/* New drift animations */
-@keyframes driftWhite {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(-50px, -30px); }
-  100% { transform: translate(0, 0); }
-}
+    @keyframes driftGold {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(100px, 150px); }
+      100% { transform: translate(0, 0); }
+    }
 
-@keyframes driftRuby {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(70px, -60px); }
-  100% { transform: translate(0, 0); }
-}
+    @keyframes driftBlue {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(-120px, -80px); }
+      100% { transform: translate(0, 0); }
+    }
 
+    @keyframes driftWhite {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(-50px, -30px); }
+      100% { transform: translate(0, 0); }
+    }
 
-
-
-    .tier a.button:hover {
-      box-shadow: 0 0 12px gold;
-      transform: scale(1.05);
-      transition: 0.2s ease-in-out;
+    @keyframes driftRuby {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(70px, -60px); }
+      100% { transform: translate(0, 0); }
     }
 
     header {
@@ -115,17 +104,19 @@ body::after {
     }
 
     h1 {
+      font-family: 'DM Serif Display', serif;
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
-      color: gold;
       background: linear-gradient(90deg, gold, orange);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
     }
 
     p.subtitle {
-      font-size: 1.2rem;
-      color: #ccc;
+      font-size: 1.1rem;
+      color: #ddd;
+      font-weight: 300;
     }
 
     .tiers {
@@ -150,14 +141,20 @@ body::after {
     }
 
     .tier h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
       margin-top: 1rem;
+      margin-bottom: 0.5rem;
       color: gold;
+      letter-spacing: 0.5px;
     }
 
     .tier ul {
       list-style: none;
       padding-left: 0;
-      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
       line-height: 1.5;
     }
 
@@ -177,6 +174,12 @@ body::after {
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
+      transition: 0.2s ease-in-out;
+    }
+
+    .tier a.button:hover {
+      box-shadow: 0 0 12px gold;
+      transform: scale(1.05);
     }
 
     footer {
@@ -191,100 +194,96 @@ body::after {
       body::after,
       .blob-ruby,
       .blob-white {
-        width: 300px !important;
-        height: 300px !important;
-        opacity: 0.4 !important;
-        filter: blur(40px) !important;
+        width: 400px !important;
+        height: 400px !important;
+        opacity: 0.6 !important;
+        filter: blur(30px) !important;
       }
 
-      
       .tiers {
         flex-direction: column;
         align-items: center;
         padding: 1rem;
       }
-    
+
       .tier {
         width: 90%;
       }
-    
+
       h1 {
         font-size: 1.8rem;
       }
-    
+
       .tier .price {
         font-size: 1.1rem;
       }
-    
+
       .tier a.button {
         font-size: 1rem;
         padding: 0.5rem 1rem;
       }
     }
-
   </style>
 </head>
 <body>
-<div class="blob blob-white"></div>
-<div class="blob blob-ruby"></div>
+  <div class="blob blob-white"></div>
+  <div class="blob blob-ruby"></div>
 
+  <header>
+    <h1>Kappa Rho 40th Anniversary</h1>
+    <p class="subtitle">Select your commemorative tier package</p>
+  </header>
 
-<header>
-  <h1>Kappa Rho 40th Anniversary</h1>
-  <p class="subtitle">Select your commemorative tier package</p>
-</header>
+  <section class="tiers">
+    <div class="tier" data-aos="fade-up" data-aos-delay="300">
+      <img src="tier-basic.png" alt="Basic Tier" />
+      <h2>Basic Tier</h2>
+      <ul>
+        <li>Custom Polo</li>
+        <li>Bracelet</li>
+        <li>Food + Drink Ticket</li>
+      </ul>
+      <div class="price">$150</div>
+      <a class="button" href="#">Reserve</a>
+    </div>
 
-<section class="tiers">
-  <div class="tier" data-aos="fade-up" data-aos-delay="300">
-    <img src="tier-basic.png" alt="Basic Tier">
-    <h2>Basic Tier</h2>
-    <ul>
-      <li>Custom Polo</li>
-      <li>Bracelet</li>
-      <li>Food + Drink Ticket</li>
-    </ul>
-    <div class="price">$150</div>
-    <a class="button" href="#">Reserve</a>
-  </div>
+    <div class="tier" data-aos="fade-up" data-aos-delay="600">
+      <img src="tier-middle.png" alt="Middle Tier" />
+      <h2>Middle Tier (Snake)</h2>
+      <ul>
+        <li>Everything in Basic</li>
+        <li>Whiskey Glass</li>
+        <li>Collectible Hat & Pin</li>
+        <li>Raffle Entry</li>
+      </ul>
+      <div class="price">$200</div>
+      <a class="button" href="#">Reserve</a>
+    </div>
 
-  <div class="tier" data-aos="fade-up" data-aos-delay="600">
-    <img src="tier-middle.png" alt="Middle Tier">
-    <h2>Middle Tier (Snake)</h2>
-    <ul>
-      <li>Everything in Basic</li>
-      <li>Whiskey Glass</li>
-      <li>Collectible Hat & Pin</li>
-      <li>Raffle Entry</li>
-    </ul>
-    <div class="price">$200</div>
-    <a class="button" href="#">Reserve</a>
-  </div>
+    <div class="tier" data-aos="fade-up" data-aos-delay="900">
+      <img src="tier-premium.png" alt="Premium Tier" />
+      <h2>Premium Tier (Chapter Eternal)</h2>
+      <ul>
+        <li>Everything in Snake</li>
+        <li>Quarter Zip</li>
+        <li>Award + Recognition</li>
+      </ul>
+      <div class="price">$275</div>
+      <a class="button" href="#">Reserve</a>
+    </div>
+  </section>
 
-  <div class="tier" data-aos="fade-up" data-aos-delay="900">
-    <img src="tier-premium.png" alt="Premium Tier">
-    <h2>Premium Tier (Chapter Eternal)</h2>
-    <ul>
-      <li>Everything in Snake</li>
-      <li>Quarter Zip</li>
-      <li>Award + Recognition</li>
-    </ul>
-    <div class="price">$275</div>
-    <a class="button" href="#">Reserve</a>
-  </div>
-</section>
+  <footer>
+    © 2025 Kappa Rho Legacy Foundation. All rights reserved.
+  </footer>
 
-<footer>
-  © 2025 Kappa Rho Legacy Foundation. All rights reserved.
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1200, // length of animation (ms)
-    once: true,     // only animate once
-    easing: 'ease-out-back', // nice smooth easing
-  });
-</script>
-
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true,
+      easing: 'ease-out-back'
+    });
+  </script>
 </body>
 </html>
