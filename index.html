@@ -224,10 +224,23 @@
       }
     }
 
-    .glow-on-load {
-  box-shadow: 0 0 40px 20px rgba(255, 215, 0, 0.4);
-  transform: scale(1.03);
-  transition: box-shadow 1.5s ease-out, transform 1.5s ease-out;
+    @keyframes premiumGlow {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 215, 0, 0);
+    transform: scale(1.0);
+  }
+  50% {
+    box-shadow: 0 0 40px 20px rgba(255, 215, 0, 0.4);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 215, 0, 0);
+    transform: scale(1.0);
+  }
+}
+
+.glow-on-load {
+  animation: premiumGlow 1.5s ease-out forwards;
 }
 
 
@@ -296,24 +309,12 @@
 
   const premium = document.getElementById('premium-tier');
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          premium.classList.add('glow-on-load');
-          setTimeout(() => {
-            premium.classList.remove('glow-on-load');
-          }, 1500);
-        }
-      });
-    },
-    {
-      threshold: 0.6 // triggers when 60% of premium is in view
-    }
-  );
-
-  observer.observe(premium);
+  premium.addEventListener('animationstart', (e) => {
+    // AOS applies its animation to a wrapper span — this still works if fired on the tier itself
+    premium.classList.add('glow-on-load');
+  });
 </script>
+
 
 </body>
 </html>
