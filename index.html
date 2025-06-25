@@ -240,7 +240,7 @@
 }
 
 .glow-on-load {
-  animation: premiumGlow 1.5s ease-out forwards;
+  animation: premiumGlow 1.5s ease-out 1.2s forwards;
 }
 
 
@@ -309,19 +309,16 @@
 
   const premium = document.getElementById('premium-tier');
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  document.addEventListener('aos:in', function(event) {
+    if (event.target === premium) {
+      // Wait until fade-in is basically done (AOS duration = 1200ms)
+      setTimeout(() => {
         premium.classList.add('glow-on-load');
-        obs.unobserve(premium); // prevent it from re-triggering
-      }
-    });
-  }, {
-    threshold: 0.1 // triggers as soon as it's visible enough to start fading
+      }, 100); // 100ms buffer after AOS starts — tweak this if needed
+    }
   });
-
-  observer.observe(premium);
 </script>
+
 
 
 
