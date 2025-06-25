@@ -69,7 +69,7 @@
       height: 450px;
       bottom: 10%;
       right: 10%;
-      background: radial-gradient(circle, rgba(170, 30, 45, 0.38), transparent 70%);
+      background: radial-gradient(circle, rgba(170, 30, 45, 0.43), transparent 70%);
       filter: blur(70px);
       animation: driftRuby 15s ease-in-out infinite;
     }
@@ -244,6 +244,39 @@
 }
 
 
+    .event-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem 1rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.event-flyer {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.event-text h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: gold;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.event-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
     
   </style>
 </head>
@@ -256,6 +289,21 @@
     <p class="subtitle">Select your commemorative tier package</p>
   </header>
 
+  <section class="event-info" data-aos="fade-up">
+  <img src="flyer-final.png" alt="Event Flyer" class="event-flyer" />
+  <div class="event-text">
+    <h2>Celebrating 40 Years of Brotherhood</h2>
+    <p>
+      Join us for a once-in-a-lifetime celebration as we honor the legacy of Sigma Nu Kappa Rho,
+      commemorate our 1000th initiated member, and reconnect with generations of alumni.
+    </p>
+    <p><strong>Date:</strong> September 20, 2025<br>
+       <strong>Location:</strong> UC San Diego Faculty Club<br>
+       <strong>Attire:</strong> Cocktail / Business Formal</p>
+  </div>
+</section>
+
+  
   <section class="tiers">
     <div class="tier" data-aos="fade-up" data-aos-delay="300">
       <img src="tier-basic.png" alt="Basic Tier" />
