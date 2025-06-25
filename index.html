@@ -18,7 +18,7 @@
     /* Golden blob */
 body::before {
   content: '';
-  position: fixed;
+  position: absolute;
   width: 600px;
   height: 600px;
   top: -100px;
@@ -32,7 +32,7 @@ body::before {
     /* Blue blob */
 body::after {
   content: '';
-  position: fixed;
+  position: absolute;
   width: 500px;
   height: 500px;
   bottom: -100px;
@@ -59,7 +59,7 @@ body::after {
 }
 
     .blob {
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
   z-index: -1;
   pointer-events: none;
@@ -187,6 +187,17 @@ body::after {
     }
 
     @media (max-width: 768px) {
+      body::before,
+      body::after,
+      .blob-ruby,
+      .blob-white {
+        width: 300px !important;
+        height: 300px !important;
+        opacity: 0.4 !important;
+        filter: blur(40px) !important;
+      }
+
+      
       .tiers {
         flex-direction: column;
         align-items: center;
