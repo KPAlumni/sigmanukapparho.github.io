@@ -8,19 +8,37 @@
   <style>
     body {  
       margin: 0;
-      background: radial-gradient(circle at top left, #111 0%, #000 100%);
-      animation: subtleShift 20s ease-in-out infinite alternate;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
       font-family: 'Segoe UI', sans-serif;
+      z-index: 0;
     }
 
-    @keyframes subtleShift {
-      0% { background-position: 0% 0%; }
-      100% { background-position: 100% 100%; }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 30%, #2c2c2c, #000000, #111);
+      animation: glowingGradient 30s ease-in-out infinite;
+      z-index: -1;
+      opacity: 0.6;
     }
+    
+    @keyframes glowingGradient {
+      0% {
+        transform: translate(0%, 0%);
+      }
+      50% {
+        transform: translate(-25%, -25%);
+      }
+      100% {
+        transform: translate(0%, 0%);
+      }
+    }
+
 
     .tier a.button:hover {
       box-shadow: 0 0 12px gold;
@@ -184,7 +202,11 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init();
+  AOS.init({
+    duration: 1200, // length of animation (ms)
+    once: true,     // only animate once
+    easing: 'ease-out-back', // nice smooth easing
+  });
 </script>
 
 </body>
