@@ -307,11 +307,11 @@
     easing: 'ease-out-back'
   });
 
-  const premium = document.getElementById('premium-tier');
-
-  premium.addEventListener('animationstart', (e) => {
-    // AOS applies its animation to a wrapper span — this still works if fired on the tier itself
-    premium.classList.add('glow-on-load');
+  document.addEventListener('aos:in', function(event) {
+    if (event.target.id === 'premium-tier') {
+      const el = event.target;
+      el.classList.add('glow-on-load');
+    }
   });
 </script>
 
