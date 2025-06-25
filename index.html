@@ -226,7 +226,8 @@
 
     .glow-on-load {
   box-shadow: 0 0 30px 10px gold;
-  transition: box-shadow 1.5s ease-out;
+  transform: scale(1.03);
+  transition: box-shadow 1.5s ease-out, transform 1.5s ease-out;
 }
 
     
@@ -294,14 +295,14 @@
 
     // Add golden glow on scroll-triggered reveal
   document.addEventListener('aos:in', function(event) {
-    if (event.detail.id === 'premium-tier') {
-      const premium = document.getElementById('premium-tier');
-      premium.classList.add('glow-on-load');
-      setTimeout(() => {
-        premium.classList.remove('glow-on-load');
-      }, 1500); // match transition time
-    }
-  });
+  const element = event.detail;
+  if (element.id === 'premium-tier') {
+    element.classList.add('glow-on-load');
+    setTimeout(() => {
+      element.classList.remove('glow-on-load');
+    }, 1500);
+  }
+});
   </script>
 </body>
 </html>
