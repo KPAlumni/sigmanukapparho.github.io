@@ -455,8 +455,8 @@
 
     .snake {
   position: absolute;
-  width: 120px;
-  opacity: 0.3;
+  width: 160px;
+  opacity: 0.4;
   animation: float 10s ease-in-out infinite;
   z-index: -1;
 }
@@ -475,8 +475,8 @@
 
 @keyframes float {
   0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(10px) rotate(1deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(20px) rotate(20deg); }
+  100% { transform: translateY(0px) rotate(-10deg); }
 }
 
 
@@ -595,7 +595,7 @@
 <!-- decorative blobs and snakes go outside the header -->
 <div class="hero-snakes">
   <img src="snakeSword.png" class="snake snake-left" alt="Snake Left">
-  <img src="snakeSword.png" style="transform: scaleX(-1);" alt="Snake Mirrored">
+  <img src="snakeSword.png" class="snake snake-right" style="transform: scaleX(-1);" alt="Snake Mirrored">
 </div>
 
 
