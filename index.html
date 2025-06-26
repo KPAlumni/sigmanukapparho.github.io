@@ -465,16 +465,17 @@
 }
 
 .seal-container {
+  position: absolute
   top: 20%;
   right: 5%;
   z-index: -1;
-  animation: floatY 8s ease-in-out infinite, 
+  animation: floatY 8s ease-in-out infinite;
 }
 
     .sn-seal {
   width: 160px;
   opacity: 0.4;
-  animation: wiggle 8s ease-in-out infinite reverse;
+  animation: wiggleReverse 8s ease-in-out infinite;
   filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.2));
 }
 
@@ -500,6 +501,13 @@
   50%  { transform: rotate(7deg); }
   100% { transform: rotate(0deg); }
 }
+
+    @keyframes wiggleReverse {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(-7deg); }
+  100% { transform: rotate(0deg); }
+}
+
 
 
 
