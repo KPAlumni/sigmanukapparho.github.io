@@ -359,6 +359,39 @@
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
 }
 
+  .blob-gold {
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.35), transparent 70%);
+  width: 600px;
+  height: 600px;
+  filter: blur(100px);
+  animation: driftGold 20s ease-in-out infinite;
+}
+
+.blob-blue {
+  background: radial-gradient(circle, rgba(0, 100, 255, 0.34), transparent 70%);
+  width: 500px;
+  height: 500px;
+  filter: blur(80px);
+  animation: driftBlue 30s ease-in-out infinite;
+}
+
+    .extra-gold {
+  top: 60%;
+  left: -50px;
+  position: absolute;
+  opacity: 0.3;
+  animation-delay: 4s;
+  z-index: -1;
+}
+
+.extra-blue {
+  bottom: 70%;
+  right: 20%;
+  position: absolute;
+  opacity: 0.3;
+  animation-delay: 6s;
+  z-index: -1;
+}
 
 
     
@@ -367,6 +400,10 @@
 <body>
   <div class="blob blob-white"></div>
   <div class="blob blob-ruby"></div>
+  <!-- Duplicated gold and blue blobs as HTML elements -->
+  <div class="blob blob-gold extra-gold"></div>
+  <div class="blob blob-blue extra-blue"></div>
+
 
   <header>
     <h1>Kappa Rho 40th Anniversary</h1>
