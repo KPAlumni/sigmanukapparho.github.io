@@ -306,20 +306,60 @@
   margin: auto;
 }
 
-    .day-schedule {
-  background: rgba(255, 255, 255, 0.05);
+    .event-days-section {
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.day-card {
+  background-color: #111;
   padding: 2rem;
-  margin: 2rem auto;
   border-radius: 12px;
-  max-width: 850px;
-  color: #eee;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.08);
+  transition: transform 0.3s ease;
 }
-.day-schedule img {
-  max-width: 100%;
+
+.day-card:hover {
+  transform: scale(1.01);
+}
+
+.day-card h2 {
+  font-family: 'DM Serif Display', serif;
+  color: gold;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.day-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 0.75rem;
+  font-weight: 300;
+}
+
+.day-card p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.day-card img {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
   border-radius: 8px;
-  margin-top: 1rem;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
 }
+
+
 
     
   </style>
@@ -353,28 +393,63 @@
   </div>
 </section>
 
-  <section class="day-schedule">
-  <h3>Friday – Welcome Reception</h3>
-  <p>Location: UC San Diego Faculty Club</p>
-  <p>Time: 6:00pm – 10:00pm</p>
-  <p>Enjoy hors d’oeuvres, wine tasting, and reconnecting with brothers from across the years.</p>
-  <img src="warren-map.png" alt="Friday Map">
-</section>
+ <section class="event-days-section">
+  <div class="day-card" data-aos="fade-up">
+    <h2>Friday – October 17th</h2>
+    <div class="day-meta">
+      <span>📍 Dirty Birds (formerly Round Table Pizza)</span>
+      <span>🕒 3:00pm – 7:00pm</span>
+    </div>
+    <p>
+      Begin the weekend by checking in at Dirty Birds, the newly renovated former Round Table Pizza spot. That evening, join us at the Chapter House for a casual Beirut Night and toast to the decades that brought us here.
+    </p>
+    <div class="day-meta">
+      <span>📍 Chapter House</span>
+      <span>🕗 8:00pm – Late</span>
+    </div>
+    <p>
+      Kick back with brothers old and new for an evening of drinks, games, and tradition.
+    </p>
+    <img src="warren-map.png" alt="Friday Map">
+  </div>
 
-<section class="day-schedule">
-  <h3>Saturday – Legacy Banquet</h3>
-  <p>Location: UCSD Atkinson Pavilion</p>
-  <p>Time: 5:00pm – 10:00pm</p>
-  <p>Formal dinner, award presentations, and the ceremonial honoring of our 1000th initiated brother.</p>
-  <img src="shores-map.png" alt="Saturday Map">
-</section>
+  <div class="day-card" data-aos="fade-up" data-aos-delay="150">
+    <h2>Saturday – October 18th</h2>
+    <div class="day-meta">
+      <span>📍 UCSD Campus</span>
+      <span>🕙 10:00am</span>
+    </div>
+    <p>
+      Secondary check-in followed by our annual Active/Alumni Chapter Meeting at 11:00am. Then, enjoy an alumni pub crawl starting at Dirty Birds.
+    </p>
+    <div class="day-meta">
+      <span>📍 Dirty Birds (Pub Crawl Start)</span>
+      <span>🕛 12:00pm – 3:00pm</span>
+    </div>
+    <p>
+      Reconnect with brothers in a laid-back, spirited afternoon of toasts and stories.
+    </p>
+    <div class="day-meta">
+      <span>📍 Shores Diner (formerly Porter’s Pub)</span>
+      <span>🕠 5:30pm – 9:00pm</span>
+    </div>
+    <p>
+      Cap the night with a cocktail reception at Shores Diner. All guests and plus ones are welcome for this memorable evening of celebration and community.
+    </p>
+    <img src="shores-map.png" alt="Saturday Map">
+  </div>
 
-<section class="day-schedule">
-  <h3>Sunday – Brotherhood Brunch</h3>
-  <p>Location: La Jolla Shores Park</p>
-  <p>Time: 10:00am – 1:00pm</p>
-  <p>Bring the whole family for catered brunch and farewell photos at the beach.</p>
-  <img src="zoot-map.png" alt="Sunday Map">
+  <div class="day-card" data-aos="fade-up" data-aos-delay="300">
+    <h2>Sunday – October 19th</h2>
+    <div class="day-meta">
+      <span>📍 La Jolla Shores Park</span>
+      <span>🕚 11:00am – 2:00pm</span>
+    </div>
+    <p>
+      Say farewell with a beachfront BBQ brunch for the whole family. Bring your sunglasses, appetite, and stories — we’ll bring the food and nostalgia.
+    </p>
+    <img src="zoot-map.png" alt="Sunday Map">
+  </div>
 </section>
 
 
