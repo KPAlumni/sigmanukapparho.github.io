@@ -455,7 +455,7 @@
 
  .snake-container {
   position: absolute;
-  animation: floatY 10s ease-in-out infinite;
+  animation: floatY 7s ease-in-out infinite;
   z-index: -1;
 }
 
@@ -464,15 +464,24 @@
   left: 5%;
 }
 
-.snake-right-container {
+.seal-container {
   top: 20%;
   right: 5%;
+  z-index: -1;
+  animation: floatY 8s ease-in-out infinite, 
+}
+
+    .sn-seal {
+  width: 160px;
+  opacity: 0.4;
+  animation: wiggle 8s ease-in-out infinite reverse;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.2));
 }
 
     .snake {
   width: 160px;
   opacity: 0.4;
-  animation: wiggle 8s ease-in-out infinite;
+  animation: wiggle 6s ease-in-out infinite;
   transform-origin: center center;
 }
 
@@ -482,13 +491,13 @@
 
     @keyframes floatY {
   0%   { transform: translateY(0px); }
-  50%  { transform: translateY(10px); }
+  50%  { transform: translateY(15px); }
   100% { transform: translateY(0px); }
 }
 
     @keyframes wiggle {
   0%   { transform: rotate(0deg); }
-  50%  { transform: rotate(5deg); }
+  50%  { transform: rotate(7deg); }
   100% { transform: rotate(0deg); }
 }
 
@@ -611,9 +620,10 @@
   <img src="snakeSword.png" class="snake snake-left" alt="Snake Left">
 </div>
 
-<div class="snake-container snake-right-container">
-  <img src="snakeSword.png" class="snake snake-right" alt="Snake Right">
+<div class="seal-container">
+  <img src="sealStylized.png" class="sn-seal" alt="Sigma Nu Seal">
 </div>
+
 
 
 
