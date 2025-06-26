@@ -466,11 +466,18 @@
 
 .seal-container {
   position: absolute;
-  top: 30%;
+  top: 38%;
   right: 5%;
   z-index: -1;
   animation: floatY 8s ease-in-out infinite;
 }
+
+    @media (max-width: 768px) {
+  .seal-container {
+    top: 25%; /* or whatever works visually */
+  }
+}
+
 
     .sn-seal {
   width: 160px;
