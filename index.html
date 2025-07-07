@@ -370,12 +370,13 @@
 .day-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1.2rem;
   font-size: 1rem;
   color: #bbb;
-  margin-bottom: 0.75rem;
   font-weight: 300;
+  margin: 0.3rem 0 1rem;
 }
+
 
 .day-card p {
   font-size: 1.1rem;
@@ -627,13 +628,20 @@
   }
 }
 
-    .day-card h3 {
-  font-size: 1.3rem;
+    .day-card h3,
+.event-subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
   color: gold;
   font-family: 'DM Serif Display', serif;
-  margin: 1.5rem 0 0.3rem;
+  margin: 2rem 0 0.3rem; /* keep bottom margin small */
   letter-spacing: 0.3px;
 }
+
+    .sub-event {
+  margin-bottom: 2rem;
+}
+
 
 
     
@@ -717,14 +725,16 @@
   <div class="day-card" data-aos="fade-up" data-aos-delay="150">
     <div class="day-content">
       <h2>Saturday – October 18th</h2>
-      <div class="day-meta">
+      <div class="sub-event">
         <h3>Secondary Check In</h3>
+        <div class="day-meta">
         <span>📍 UCSD Lecture Hall</span>
         <span>🕙 10:00am – 11:00am</span>
       </div>
       <p>
         Official business meets brotherhood. Participate in our annual Chapter Meeting and help shape the next 40 years of Kappa Rho.
       </p>
+      </div>
       <div class="day-meta">
         <h3>Active/Alumni Chapter Meeting</h3>
         <span>📍 UCSD Lecture Hall</span>
