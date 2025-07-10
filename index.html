@@ -685,52 +685,33 @@
   margin: 2rem 0;
 }
 
-   .day-card {
+    .sub-event {
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  margin-bottom: 5rem;
-}
-
-/* Alternate event image-text layout */
-.day-card:nth-of-type(odd) .sub-event {
   flex-direction: row;
-}
-
-.day-card:nth-of-type(even) .sub-event {
-  flex-direction: row-reverse;
-}
-
-.sub-event {
-  display: flex;
   align-items: flex-start;
   gap: 2rem;
-}
-
-.sub-event-text {
-  flex: 1;
+  margin-bottom: 3rem;
 }
 
 .sub-event img {
   max-width: 300px;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.08);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.1);
 }
 
-/* Mobile stacking */
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
   .sub-event {
-    flex-direction: column !important;
+    flex-direction: column;
     text-align: center;
   }
 
   .sub-event img {
+    margin: 1rem auto;
     width: 100%;
     max-width: 100%;
   }
 }
-
 
 
 
@@ -794,128 +775,112 @@
 
 <section class="event-days-section">
   <div class="day-card" data-aos="fade-up">
-    <h2 class="day-heading">Friday – October 17th</h2>
-
-    <div class="sub-event">
-      <div class="sub-event-text">
-        <h3>Check In & Kickoff</h3>
-        <div class="day-meta">
-          <span>📍 Dirty Birds (formerly Round Table Pizza)</span>
-          <span>🕒 3:00pm – 7:00pm</span>
-        </div>
-        <p>
-          Join us as we kick off the weekend in SNU territory with an afternoon of
-          <strong>wings, brotherhood, and beer</strong> at Dirty Birds (formerly Round Table Pizza).
-          Come and check in to receive your commemorative Kappa Rho
-          <strong>merchandise and wristband</strong> (see below), which will serve as your
-          <strong>ticket to all events</strong> throughout the weekend.
-        </p>
+    <div class="day-content">
+      <h2 class="day-heading">Friday – October 17th</h2>
+      <div class="sub-event">
+      <h3>Check In & Kickoff</h3>
+      <div class="day-meta">
+        <span>📍 Dirty Birds (formerly Round Table Pizza)</span>
+        <span>🕒 3:00pm – 7:00pm</span>
       </div>
-      <img src="dbs-check-in.png" alt="Check In at Dirty Birds" />
-    </div>
-
-    <hr class="event-divider" />
-
-    <div class="sub-event">
-      <div class="sub-event-text">
-        <h3>Beirut Night</h3>
-        <div class="day-meta">
-          <span>📍 Chapter House</span>
-          <span>🕗 8:00pm – ???</span>
-        </div>
-        <p>
-          After the buzz of old stories and booze has set in, join us as we make our way
-          to the chapter house to <strong>re-live and reinvigorate your youth</strong>.
-          Test your <strong>Beirut skills</strong> against the champions of today and the
-          legends of the past as we come together and enjoy the debauchery of
-          <strong>Kappa Rho's signature pastime</strong>.
-        </p>
       </div>
-      <img src="ruit-v1.png" alt="Ruit Night" />
+      <p>
+        Join us as we kick off the weekend in SNU territory with an afternoon of <b>wings, brotherhood, and beer</b> at Dirty Birds (formerly Round Table Pizza). 
+        Come and check in to receive your commemorative Kappa Rho <b>merchandise and wristband</b> (see below), which will serve as your <b>ticket to all events</b> throughout the weekend.
+      </p>
+      <img src="dbs-check-in.png" alt="Check In" />
+      <hr class="event-divider">
+      <div class="sub-event">
+      <h3>Beirut Night</h3>
+      <div class="day-meta">
+        <span>📍 Chapter House</span>
+        <span>🕗 8:00pm – ???</span>
+      </div>
+      <p>
+        After the buzz of old stories and booze has set in, join us as we make our way to a chapter house to <b>re-live and reinvigoroute your youth</b>.
+        Test your <b>Beirut skills</b> against the champions of today and the legends of the past as we come together and enjoy the debauchery of <b>Kappa Rho's signature pastime</b>.
+      </p>
     </div>
+    <div class="day-images">
+  <img src="ruit-v1.png" alt="Ruit Night" />
+</div>
+
+
   </div>
 
-  <div class="day-card" data-aos="fade-up">
-    <h2 class="day-heading">Saturday – October 18th</h2>
-
-    <div class="sub-event">
-      <div class="sub-event-text">
+  <div class="day-card" data-aos="fade-up" data-aos-delay="150">
+    <div class="day-content">
+      <h2 class="day-heading">Saturday – October 18th</h2>
+      <div class="sub-event">
         <h3>Secondary Check In</h3>
         <div class="day-meta">
-          <span>📍 UCSD Lecture Hall</span>
-          <span>🕙 10:00am – 11:00am</span>
-        </div>
-        <p>
-          If you <strong>missed primary check in</strong> on day one, or are arriving later, come by early to our meeting lecture hall (exact location TBD) to grab your merchandise and ticket. Take some time to mingle and catch up with old friends before we begin the programming of the day.
-        </p>
+        <span>📍 UCSD Lecture Hall</span>
+        <span>🕙 10:00am – 11:00am</span>
       </div>
-    </div>
-
-    <hr class="event-divider" />
-
-    <div class="sub-event">
-      <div class="sub-event-text">
-        <h3>Active/Alumni Chapter Meeting</h3>
-        <div class="day-meta">
-          <span>📍 UCSD Lecture Hall</span>
-          <span>🕚 11:00am – 12:00pm</span>
-        </div>
-        <p>
-          Join us as we come together as both the active and alumni chapters to conduct an <strong>all-chapter meeting.</strong> Throw yourself back into the <strong>ritual and tradition</strong> never forgotten from your days as an active member. Write some <strong>brother zeros</strong> for those brothers who haven't caught enough heat for the mischief they've been up to post-grad, and catch up on what the active chapter is currently working on.
-        </p>
+      <p>
+        If you <b>missed primary check in</b> on day one, or are arriving later, come by early to our meeting lecture hall (exact location TBD) to grab your merchandise and ticket. Take
+        some time to mingle and catch up with old friends before we begin the programming of the day.
+      </p>
       </div>
-    </div>
-
-    <hr class="event-divider" />
-
-    <div class="sub-event">
-      <div class="sub-event-text">
-        <h3>Pub Crawl</h3>
-        <div class="day-meta">
-          <span>📍 Dirty Birds → Ridgewalk Social → Shores Diner</span>
-          <span>🕛 12:00pm – 3:00pm</span>
-        </div>
-        <p>
-          Following our meeting, <strong>raise a glass</strong> on a nostalgic pub crawl through campus favorites, or new spots you've never seen before. <strong>Share stories, reconnect with old friends, or meet new ones</strong> as we spend an hour each at Dirty Birds, Ridgewalk Social, and Shores Diner.
-        </p>
+      <hr class="event-divider">
+      <div class="sub-event">
+      <h3>Active/Alumni Chapter Meeting</h3>
+      <div class="day-meta">
+        <span>📍 UCSD Lecture Hall</span>
+        <span>🕙 11:00am – 12:00pm</span>
       </div>
-    </div>
-
-    <hr class="event-divider" />
-
-    <div class="sub-event">
-      <div class="sub-event-text">
-        <h3>Cocktail Reception</h3>
-        <div class="day-meta">
-          <span>📍 Shores Diner (formerly Porter's Pub)</span>
-          <span>🕠 5:30pm – 9:00pm</span>
-        </div>
-        <p>
-          After recovering from the events of the afternoon, the active chapter of Kappa Rho is pleased to invite you to our <strong>cornerstone event of the weekend.</strong> Just behind Shores Diner (formerly known as Porter's Pub).
-        </p>
+      <p>
+        Join as us we come together as both the active and alumni chapters to conduct an <b>all-chapter meeting.</b> Throw yourself back into the <b>ritual and tradition</b> never forgotten
+        from your days as an active member. Write some <b>brother zeros</b> for those brothers who haven't caught enough heat for the mischief they've been up to post-grad, and catch up
+        on what the active chapter is currently working on.
+      </p>
       </div>
-      <img src="shores-map.png" alt="Saturday Map" />
-    </div>
+      <hr class="event-divider">
+      <div class="sub-event">
+      <h3>Pub Crawl</h3>
+      <div class="day-meta">
+        <span>📍 Dirty Birds → Ridgewalk Social → Shores Diner</span>
+        <span>🕛 12:00pm – 3:00pm</span>
+      </div>
+      <p>
+        Following our meeting, <b>raise a glass</b> on a nostalgic pub crawl through campus favorites, or new spots you've never seen before. <b>Share stories, reconnect with
+        old friends, or meet new ones</b> as we spend an hour each at Dirty Birds, Ridgewalk Social, and Shores Diner.
+      </p>
+      </div>
+      <hr class="event-divider">
+      <div class="sub-event">
+      <h3>Cocktail Reception</h3>
+      <div class="day-meta">
+        <span>📍 Shores Diner (formerly Porter’s Pub)</span>
+        <span>🕠 5:30pm – 9:00pm</span>
+      </div>
+      <p>
+        After recovering from the events of the afternoon, the active chapter of Kappa Rho is pleased to invite you to our <b>cornerstone event of the weekend.</b> Just behind
+        Shores Diner (formerly known as Porter's Pub)
+      </p>
+    <img src="shores-map.png" alt="Saturday Map" />
   </div>
+  </div>
+    
 
-  <div class="day-card" data-aos="fade-up">
-    <h2 class="day-heading">Sunday – October 19th</h2>
-
-    <div class="sub-event">
-      <div class="sub-event-text">
-        <h3>Farewell Barbeque</h3>
-        <div class="day-meta">
-          <span>📍 La Jolla Shores Park</span>
-          <span>🕚 11:00am – 2:00pm</span>
-        </div>
-        <p>
-          One last hug, one last plate, and a group photo by the sea. Bring the whole family for brunch on the beach as we close out 40 unforgettable years.
-        </p>
+  <div class="day-card" data-aos="fade-up" data-aos-delay="300">
+    <div class="day-content">
+      <h2 class="day-heading">Sunday – October 19th</h2>
+      <div class="sub-event">
+      <h3>Farewell Barbeque</h3>
+      <div class="day-meta">
+        <span>📍 La Jolla Shores Park</span>
+        <span>🕚 11:00am – 2:00pm</span>
       </div>
-      <img src="zoot-map.png" alt="Sunday Map" />
+      <p>
+        One last hug, one last plate, and a group photo by the sea. Bring the whole family for brunch on the beach as we close out 40 unforgettable years.
+      </p>
     </div>
+    <img src="zoot-map.png" alt="Sunday Map" />
+  </div>
   </div>
 </section>
+
 
   
   <section class="tiers-section" id="tiers">
