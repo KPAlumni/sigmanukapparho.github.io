@@ -687,27 +687,43 @@
 
     .sub-event {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   gap: 2rem;
   margin-bottom: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.sub-event img {
-  max-width: 300px;
-  height: auto;
+.sub-event-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.sub-event-media {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  max-width: 320px;
+}
+
+.sub-event-media img {
+  width: 100%;
   border-radius: 10px;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.08);
 }
 
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
   .sub-event {
     flex-direction: column;
     text-align: center;
   }
 
-  .sub-event img {
-    margin: 1rem auto;
+  .sub-event-media {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sub-event-media img {
     width: 100%;
     max-width: 100%;
   }
