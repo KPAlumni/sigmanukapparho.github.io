@@ -794,6 +794,25 @@
   box-sizing: border-box;
 }
 
+    html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
+body::before,
+body::after,
+.blob {
+  contain: layout;
+  pointer-events: none;
+}
+
+.hero-section {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 
 
 
