@@ -479,13 +479,13 @@
 }
 
     .snake-left-container {
-  top: 8%;
+  top: 5%;
   left: 5%;
 }
 
 .seal-container {
   position: absolute;
-  top: 38%;
+  top: 37%;
   right: 5%;
   z-index: -1;
   animation: floatY 8s ease-in-out infinite;
@@ -778,11 +778,16 @@
   }
 }
 
-
-
     .sunday-heading {
   text-align: left;
   margin-left: 4rem;
+}
+
+    @media (max-width: 768px) {
+  html, body {
+    overflow-x: clip !important; /* blocks scroll AND hides scrollbar */
+    position: relative;
+  }
 }
 
  
