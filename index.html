@@ -652,7 +652,8 @@
   color: gold;
   margin-top: 4rem;
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: left;
+  margin-left: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
       /*
@@ -684,6 +685,39 @@
   background: linear-gradient(to right, transparent, rgba(255, 215, 0, 0.6), transparent);
   margin: 2rem 0;
 }
+
+    .sub-event-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sub-event-text {
+  flex: 2;
+}
+
+.sub-event-image img {
+  max-width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .sub-event-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sub-event-image img {
+    max-width: 90%;
+  }
+}
+
+.day-heading {
+  text-align: left;
+}
+
 
 
 
@@ -745,36 +779,49 @@
 </section>
 
 <section class="event-days-section">
-  <!-- FRIDAY -->
-  <div class="day-card" data-aos="fade-up">
-    <div class="day-content">
-      <h2 class="day-heading">Friday – October 17th</h2>
+ <!-- FRIDAY -->
+<div class="day-card" data-aos="fade-up">
+  <div class="day-content">
+    <h2 class="day-heading">Friday – October 17th</h2>
 
-      <h3>Check In & Kickoff</h3>
-      <div class="day-meta">
-        <span>📍 Dirty Birds (formerly Round Table Pizza)</span>
-        <span>🕒 3:00pm – 7:00pm</span>
+    <div class="sub-event-row">
+      <div class="sub-event-text">
+        <h3>Check In & Kickoff</h3>
+        <div class="day-meta">
+          <span>📍 Dirty Birds (formerly Round Table Pizza)</span>
+          <span>🕒 3:00pm – 7:00pm</span>
+        </div>
+        <p>
+          Join us as we kick off the weekend in SNU territory with an afternoon of <b>wings, brotherhood, and beer</b> at Dirty Birds (formerly Round Table Pizza). 
+          Come and check in to receive your commemorative Kappa Rho <b>merchandise and wristband</b> (see below), which will serve as your <b>ticket to all events</b> throughout the weekend.
+        </p>
       </div>
-      <p>
-        Join us as we kick off the weekend in SNU territory with an afternoon of <b>wings, brotherhood, and beer</b> at Dirty Birds (formerly Round Table Pizza). 
-        Come and check in to receive your commemorative Kappa Rho <b>merchandise and wristband</b> (see below), which will serve as your <b>ticket to all events</b> throughout the weekend.
-      </p>
-      <img src="dbs-check-in.png" alt="Check In">
-
-      <hr class="event-divider">
-
-      <h3>Beirut Night</h3>
-      <div class="day-meta">
-        <span>📍 Chapter House</span>
-        <span>🕗 8:00pm – ???</span>
+      <div class="sub-event-image">
+        <img src="dbs-check-in.png" alt="Check In">
       </div>
-      <p>
-        After the buzz of old stories and booze has set in, join us as we make our way to a chapter house to <b>re-live and reinvigoroute your youth</b>.
-        Test your <b>Beirut skills</b> against the champions of today and the legends of the past as we come together and enjoy the debauchery of <b>Kappa Rho's signature pastime</b>.
-      </p>
-      <img src="ruit-v1.png" alt="Ruit Night">
+    </div>
+
+    <hr class="event-divider">
+
+    <div class="sub-event-row">
+      <div class="sub-event-text">
+        <h3>Beirut Night</h3>
+        <div class="day-meta">
+          <span>📍 Chapter House</span>
+          <span>🕗 8:00pm – ???</span>
+        </div>
+        <p>
+          After the buzz of old stories and booze has set in, join us as we make our way to a chapter house to <b>re-live and reinvigoroute your youth</b>.
+          Test your <b>Beirut skills</b> against the champions of today and the legends of the past as we come together and enjoy the debauchery of <b>Kappa Rho's signature pastime</b>.
+        </p>
+      </div>
+      <div class="sub-event-image">
+        <img src="ruit-v1.png" alt="Ruit Night">
+      </div>
     </div>
   </div>
+</div>
+
 
   <!-- SATURDAY -->
   <div class="day-card" data-aos="fade-up" data-aos-delay="150">
