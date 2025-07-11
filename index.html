@@ -653,7 +653,7 @@
   margin-top: 4rem;
   margin-bottom: 2rem;
   text-align: left;
-  margin-left: 0;
+  margin-left: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
       /*
@@ -717,6 +717,58 @@
 .day-heading {
   text-align: left;
 }
+
+    .day-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.day-heading {
+  text-align: left;
+  margin-left: 2rem;
+}
+
+.saturday-heading {
+  text-align: center;
+  margin-left: 0;
+}
+
+.reverse-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.reverse-layout .sub-event-image {
+  order: 1;
+  flex: 1;
+}
+
+.reverse-layout .sub-event-text {
+  order: 2;
+  flex: 2;
+}
+
+.sub-event-image img {
+  max-width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .reverse-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reverse-layout .sub-event-image img {
+    max-width: 90%;
+  }
+}
+
 
 
 
@@ -823,59 +875,90 @@
 </div>
 
 
-  <!-- SATURDAY -->
+ <!-- SATURDAY -->
+<div class="day-container">
+  <h2 class="day-heading saturday-heading">Saturday – October 18th</h2>
   <div class="day-card" data-aos="fade-up" data-aos-delay="150">
     <div class="day-content">
-      <h2 class="day-heading">Saturday – October 18th</h2>
 
-      <h3>Secondary Check In</h3>
-      <div class="day-meta">
-        <span>📍 UCSD Lecture Hall</span>
-        <span>🕙 10:00am – 11:00am</span>
+      <div class="sub-event-row reverse-layout">
+        <div class="sub-event-image">
+          <img src="sat-checkin.png" alt="Secondary Check-In">
+        </div>
+        <div class="sub-event-text">
+          <h3>Secondary Check In</h3>
+          <div class="day-meta">
+            <span>📍 UCSD Lecture Hall</span>
+            <span>🕙 10:00am – 11:00am</span>
+          </div>
+          <p>
+            If you <b>missed primary check in</b> on day one, or are arriving later, come by early to our meeting lecture hall (exact location TBD) to grab your merchandise and ticket. 
+            Take some time to mingle and catch up with old friends before we begin the programming of the day.
+          </p>
+        </div>
       </div>
-      <p>
-        If you <b>missed primary check in</b> on day one, or are arriving later, come by early to our meeting lecture hall (exact location TBD) to grab your merchandise and ticket. 
-        Take some time to mingle and catch up with old friends before we begin the programming of the day.
-      </p>
 
       <hr class="event-divider">
 
-      <h3>Active/Alumni Chapter Meeting</h3>
-      <div class="day-meta">
-        <span>📍 UCSD Lecture Hall</span>
-        <span>🕙 11:00am – 12:00pm</span>
+      <div class="sub-event-row reverse-layout">
+        <div class="sub-event-image">
+          <img src="chapter-meeting.png" alt="Chapter Meeting">
+        </div>
+        <div class="sub-event-text">
+          <h3>Active/Alumni Chapter Meeting</h3>
+          <div class="day-meta">
+            <span>📍 UCSD Lecture Hall</span>
+            <span>🕚 11:00am – 12:00pm</span>
+          </div>
+          <p>
+            Join as us we come together as both the active and alumni chapters to conduct an <b>all-chapter meeting.</b> 
+            Throw yourself back into the <b>ritual and tradition</b> never forgotten from your days as an active member. 
+            Write some <b>brother zeros</b> for those brothers who haven't caught enough heat for the mischief they've been up to post-grad, and catch up on what the active chapter is currently working on.
+          </p>
+        </div>
       </div>
-      <p>
-        Join as us we come together as both the active and alumni chapters to conduct an <b>all-chapter meeting.</b> 
-        Throw yourself back into the <b>ritual and tradition</b> never forgotten from your days as an active member. 
-        Write some <b>brother zeros</b> for those brothers who haven't caught enough heat for the mischief they've been up to post-grad, and catch up on what the active chapter is currently working on.
-      </p>
 
       <hr class="event-divider">
 
-      <h3>Pub Crawl</h3>
-      <div class="day-meta">
-        <span>📍 Dirty Birds → Ridgewalk Social → Shores Diner</span>
-        <span>🕛 12:00pm – 3:00pm</span>
+      <div class="sub-event-row reverse-layout">
+        <div class="sub-event-image">
+          <img src="pub-crawl.png" alt="Pub Crawl">
+        </div>
+        <div class="sub-event-text">
+          <h3>Pub Crawl</h3>
+          <div class="day-meta">
+            <span>📍 Dirty Birds → Ridgewalk Social → Shores Diner</span>
+            <span>🕛 12:00pm – 3:00pm</span>
+          </div>
+          <p>
+            Following our meeting, <b>raise a glass</b> on a nostalgic pub crawl through campus favorites, or new spots you've never seen before. 
+            <b>Share stories, reconnect with old friends, or meet new ones</b> as we spend an hour each at Dirty Birds, Ridgewalk Social, and Shores Diner.
+          </p>
+        </div>
       </div>
-      <p>
-        Following our meeting, <b>raise a glass</b> on a nostalgic pub crawl through campus favorites, or new spots you've never seen before. 
-        <b>Share stories, reconnect with old friends, or meet new ones</b> as we spend an hour each at Dirty Birds, Ridgewalk Social, and Shores Diner.
-      </p>
 
       <hr class="event-divider">
 
-      <h3>Cocktail Reception</h3>
-      <div class="day-meta">
-        <span>📍 Shores Diner (formerly Porter’s Pub)</span>
-        <span>🕠 5:30pm – 9:00pm</span>
+      <div class="sub-event-row reverse-layout">
+        <div class="sub-event-image">
+          <img src="shores-map.png" alt="Cocktail Reception">
+        </div>
+        <div class="sub-event-text">
+          <h3>Cocktail Reception</h3>
+          <div class="day-meta">
+            <span>📍 Shores Diner (formerly Porter’s Pub)</span>
+            <span>🕠 5:30pm – 9:00pm</span>
+          </div>
+          <p>
+            After recovering from the events of the afternoon, the active chapter of Kappa Rho is pleased to invite you to our <b>cornerstone event of the weekend.</b> 
+            Just behind Shores Diner (formerly known as Porter's Pub).
+          </p>
+        </div>
       </div>
-      <p>
-        After recovering from the events of the afternoon, the active chapter of Kappa Rho is pleased to invite you to our <b>cornerstone event of the weekend.</b> 
-        Just behind Shores Diner (formerly known as Porter's Pub).
-      </p>
+
     </div>
   </div>
+</div>
 
   <!-- SUNDAY -->
   <div class="day-card" data-aos="fade-up" data-aos-delay="300">
