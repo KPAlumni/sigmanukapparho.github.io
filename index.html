@@ -759,7 +759,8 @@
 }
 
 @media (max-width: 768px) {
-  .sub-event-row {
+  .sub-event-row,
+  .reverse-layout {
     flex-direction: column;
     text-align: center;
   }
@@ -778,9 +779,19 @@
 }
 
 
+
     .sunday-heading {
   text-align: left;
   margin-left: 4rem;
+}
+
+    html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 
