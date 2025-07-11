@@ -785,12 +785,11 @@
   margin-left: 4rem;
 }
 
-    html, body {
+   html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
   overflow-x: hidden;
-  box-sizing: border-box;
+  width: 100%;
 }
 
 *, *::before, *::after {
@@ -802,15 +801,14 @@
 .blob-ruby,
 .extra-gold,
 .extra-blue,
-body::before,
-body::after,
 .snake-container,
-.seal-container {
-  max-width: 100vw;
-  overflow: hidden;
+.seal-container,
+body::before,
+body::after {
+  position: absolute;
   pointer-events: none;
+  z-index: -1;
 }
-
 
   
 
@@ -892,7 +890,7 @@ body::after,
         </p>
       </div>
       <div class="sub-event-image">
-        <img src="dbs-check-in.png" alt="Check In">
+        <img src="dbs-check-in-v2.png" alt="Check In">
       </div>
     </div>
 
