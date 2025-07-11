@@ -753,21 +753,30 @@
 }
 
 .sub-event-image img {
-  max-width: 250px;
+  max-width: 350px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
 }
 
 @media (max-width: 768px) {
-  .reverse-layout {
+  .sub-event-row {
     flex-direction: column;
     text-align: center;
   }
 
-  .reverse-layout .sub-event-image img {
+  .sub-event-text {
+    order: 1;
+  }
+
+  .sub-event-image {
+    order: 2;
+  }
+
+  .sub-event-image img {
     max-width: 90%;
   }
 }
+
 
     .sunday-heading {
   text-align: left;
