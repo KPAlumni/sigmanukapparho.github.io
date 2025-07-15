@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kappa Rho Legacy Foundation</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Style -->
+  <style>
+    body {
+      background-color: #000;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, gold, orange);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+    }
+
+    p.subtitle {
+      font-size: 1.2rem;
+      color: #ccc;
+      font-weight: 300;
+    }
+
+    .logo {
+      width: 200px;
+      margin: 2rem auto;
+      display: block;
+      opacity: 0.85;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 2rem 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- OPTIONAL: Password protection -->
+  
+  <script>
+    var pass = prompt("Enter password:");
+    if (pass !== "legacy2025") {
+      alert("Incorrect password.");
+      window.location.href = "/";
+    }
+  </script>
+  
+
+  <header>
+    <img src="legacy-logo.png" alt="Legacy Logo" class="logo" />
+    <h1>Kappa Rho Legacy Foundation</h1>
+    <p class="subtitle">Honoring the past. Investing in the future.</p>
+  </header>
+
+  <main>
+    <p>
+      Welcome to the official page of the <strong>Kappa Rho Legacy Foundation</strong>, our scholarship and leadership initiative built to support future generations of Sigma Nu brothers at UC San Diego.
+    </p>
+
+    <p>
+      This page is under development. More information on scholarships, board members, and giving opportunities will be available soon.
+    </p>
+  </main>
+
+  <footer>
+    © 2025 Kappa Rho Legacy Foundation. All rights reserved.
+  </footer>
+</body>
+</html>
