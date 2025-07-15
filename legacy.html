@@ -8,7 +8,6 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
 
-  <!-- Style -->
   <style>
     body {
       background-color: #000;
@@ -17,38 +16,48 @@
       color: #f5f5f5;
     }
 
-    header {
+    .hero-header {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-color: #000;
+      overflow: hidden;
       text-align: center;
-      padding: 4rem 1rem 2rem;
+      padding: 0 1rem;
+      box-sizing: border-box;
     }
 
-    h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(90deg, gold, orange);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
+    .glow-bg {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%);
+      filter: blur(100px);
+      animation: glowPulse 3s ease-in-out infinite;
+      z-index: 1;
     }
 
-   .subtitle {
-  font-size: 1.5rem;
-  color: #ccc;
-  margin-top: 2rem;
-  font-weight: 300;
-  opacity: 0;
-  animation: fadeInRise 1s ease-out forwards;
-  animation-delay: 1.2s;
-}
+    .legacy-logo {
+      width: 500px;
+      max-width: 95%;
+      opacity: 0;
+      animation: fadeInOpacity 1s ease-out forwards,
+                 riseUpOnce 1s ease-out forwards,
+                 floatUpDown 5s ease-in-out 1s infinite;
+    }
 
-
-
-    .logo {
-      width: 200px;
-      margin: 2rem auto;
-      display: block;
-      opacity: 0.85;
+    .subtitle {
+      font-size: 1.5rem;
+      color: #ccc;
+      margin-top: 2rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeInOpacity 1s ease-out forwards, riseUpOnce 1s ease-out forwards;
+      animation-delay: 1.2s, 1.2s;
     }
 
     main {
@@ -65,106 +74,42 @@
       padding: 2rem 1rem;
     }
 
+    /* Animations */
+    @keyframes fadeInOpacity {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-   .hero-header {
-  height: 100vh;               /* Fills entire screen height */
-  width: 100%;                 /* Fills full width */
-  display: flex;
-  flex-direction: column;      /* Stack elements vertically */
-  align-items: center;         /* Center items horizontally */
-  justify-content: center;     /* Center items vertically */
-  position: relative;
-  background-color: #000;
-  overflow: hidden;
-  text-align: center;
-  padding: 0 1rem;             /* Padding for small screens */
-  box-sizing: border-box;
-}
+    @keyframes riseUpOnce {
+      from { transform: translateY(30px); }
+      to { transform: translateY(0); }
+    }
 
-.legacy-logo {
-  width: 500px;
-  max-width: 95%;
-  opacity: 0;
-  animation-name: fadeInRise, floatUpDown;
-  animation-duration: 1s, 5s;
-  animation-timing-function: ease-out, ease-in-out;
-  animation-fill-mode: forwards, infinite;
-  animation-delay: 0s, 1s; /* fade immediately, float after fade */
-}
+    @keyframes floatUpDown {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
 
-
-    
-
-.glow-bg {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%);
-  filter: blur(100px);
-  animation: glowPulse 3s ease-in-out infinite;
-  z-index: 1;
-}
-
-/* Floating animation */
-@keyframes floatUpDown {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-/* Subtle pulsing glow */
-@keyframes glowPulse {
-  0%   { transform: scale(1); opacity: 0.5; }
-  50%  { transform: scale(1.05); opacity: 0.7; }
-  100% { transform: scale(1); opacity: 0.5; }
-}
-
-@keyframes fadeInRise {
-  from {
-    opacity: 0;
-    transform: translateY(30px); /* more dramatic rise */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-    
+    @keyframes glowPulse {
+      0%   { transform: scale(1); opacity: 0.5; }
+      50%  { transform: scale(1.05); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 0.5; }
+    }
   </style>
 </head>
 
 <body>
-  <!-- OPTIONAL: Password protection -->
-  <!--
-  <script>
-    var pass = prompt("Enter password:");
-    if (pass !== "kp") {
-      alert("Incorrect password.");
-      window.location.href = "/";
-    }
-  </script>
-  -->
-  
-
   <header class="hero-header">
     <div class="glow-bg"></div>
-    <img src="legacy-logo-nobg.png" alt="Kappa Rho Legacy Foundation Logo" class="legacy-logo floating" />
+    <img src="legacy-logo-nobg.png" alt="Kappa Rho Legacy Foundation Logo" class="legacy-logo" />
     <p class="subtitle">Honoring the past. Investing in the future.</p>
   </header>
-
-
-  
-    
- 
 
   <main>
     <p>
       Welcome to the official page of the <strong>Kappa Rho Legacy Foundation</strong>, our scholarship and leadership initiative built to support future generations of Sigma Nu brothers at UC San Diego.
     </p>
-
     <p>
       This page is under development. More information on scholarships, board members, and giving opportunities will be available soon.
     </p>
