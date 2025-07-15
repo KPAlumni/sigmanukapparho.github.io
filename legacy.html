@@ -32,11 +32,15 @@
       letter-spacing: 1px;
     }
 
-    p.subtitle {
-      font-size: 1.2rem;
-      color: #ccc;
-      font-weight: 300;
-    }
+   .subtitle {
+  font-size: 1.5rem;         /* Slightly larger text */
+  color: #ccc;
+  margin-top: 2rem;          /* Push it down below logo */
+  font-weight: 300;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 1.2s; /* delay AFTER logo fades in */
+}
+
 
     .logo {
       width: 200px;
@@ -76,20 +80,20 @@
 }
 
 .legacy-logo {
-  width: 300px;
+  width: 400px;             /* Was 300px — increase */
   max-width: 90%;
-  z-index: 2;
-  animation: floatUpDown 5s ease-in-out infinite;
+  animation: floatUpDown 5s ease-in-out infinite, fadeIn 1s ease-out forwards;
   opacity: 0;
-  animation: fadeIn 1s ease-out forwards, floatUpDown 5s ease-in-out infinite;
 }
+
+    
 
 .glow-bg {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%);
-  filter: blur(80px);
+  filter: blur(100px);
   animation: glowPulse 3s ease-in-out infinite;
   z-index: 1;
 }
@@ -109,8 +113,9 @@
 }
 
 /* Fade in animation */
-@keyframes fadeIn {
-  to { opacity: 1; }
+@@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 
