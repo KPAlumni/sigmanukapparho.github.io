@@ -37,82 +37,80 @@
       coords: [ city.coord, sanDiego ]
     }));
 
-    chart.setOption({
-      backgroundColor: '#111',
-      geo: {
-        map: 'USA',
-        roam: false,
-        label: { show: false },
-        itemStyle: {
-          areaColor: '#222',
-          borderColor: '#999'
-        },
-        emphasis: {
-          itemStyle: {
-            areaColor: '#333'
-          }
-        }
-      },
-      series: [
-        {
-          type: 'lines',
-          coordinateSystem: 'geo',
-          zlevel: 2,
-          effect: {
-            show: true,
-            period: 4,
-            trailLength: 0.3,
-            color: '#FFD700', // gold effect
-            symbolSize: 6
-          },
-          lineStyle: {
-            color: '#FFD700',
-            width: 2,
-            opacity: 0.8,
-            curveness: 0.2
-          },
-          data: flightPaths
-        },
-        {
-          type: 'scatter',
-          coordinateSystem: 'geo',
-          data: cities.map(city => ({
-            name: city.name,
-            value: city.coord
-          })),
-          symbolSize: 6,
-          itemStyle: {
-            color: '#FFD700'
-          }
-        },
-        {
-          type: 'scatter',
-          coordinateSystem: 'geo',
-          data: [{
-            name: 'San Diego',
-            value: sanDiego
-          }],
-          symbolSize: 10,
-          itemStyle: {
-            color: '#FF4500'
-          },
-          label: {
-            show: true,
-            formatter: 'San Diego',
-            color: '#FFD700',
-            fontSize: 14,
-            offset: [0, 10]
-          }
-        }
-      ]
-    });
-
-    // Load US map
     fetch('https://geo.datav.aliyun.com/areas/bound/usa.geo.json')
       .then(res => res.json())
-      .then(json => {
-        echarts.registerMap('USA', json);
-        chart.setOption({ geo: { map: 'USA' } });
+      .then(usaJson => {
+        echarts.registerMap('USA', usaJson);
+
+        chart.setOption({
+          backgroundColor: '#111',
+          geo: {
+            map: 'USA',
+            roam: false,
+            label: { show: false },
+            itemStyle: {
+              areaColor: '#222',
+              borderColor: '#999'
+            },
+            emphasis: {
+              itemStyle: {
+                areaColor: '#333'
+              }
+            }
+          },
+          series: [
+            {
+              type: 'lines',
+              coordinateSystem: 'geo',
+              zlevel: 2,
+              effect: {
+                show: true,
+                period: 4,
+                trailLength: 0.3,
+                color: '#FFD700', // gold effect
+                symbolSize: 6
+              },
+              lineStyle: {
+                color: '#FFD700',
+                width: 2,
+                opacity: 0.8,
+                curveness: 0.2
+              },
+              data: flightPaths
+            },
+            {
+              type: 'scatter',
+              coordinateSystem: 'geo',
+              data: cities.map(city => ({
+                name: city.name,
+                value: city.coord
+              })),
+              symbolSize: 6,
+              itemStyle: {
+                color: '#FFD700'
+              }
+            },
+            {
+              type: 'scatter',
+              coordinateSystem: 'geo',
+              data: [{
+                name: 'San Diego',
+                value: sanDiego
+              }],
+              symbolSize: 10,
+              itemStyle: {
+                color: '#FF4500'
+              },
+              label: {
+                show: true,
+                formatter: 'San Diego',
+                color: '#FFD700',
+                fontSize: 14,
+                offset: [0, 10]
+              }
+            }
+          ]
+        });
       });
   </script>
 </body>
