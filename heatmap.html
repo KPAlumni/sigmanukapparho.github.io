@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html style="height:100%">
+<html lang="en" style="height: 100%">
 <head>
-  <meta charset="UTF-8">
-  <title>Alumni Travel Map</title>
+  <meta charset="UTF-8" />
+  <title>Alumni Flight Map</title>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/js/usa.js"></script>
   <style>
     html, body {
       height: 100%;
       margin: 0;
-      background: #111;
+      background-color: #111;
     }
     #map {
       width: 100%;
@@ -21,10 +20,32 @@
   <div id="map"></div>
 
   <script>
+    // USA GeoJSON manually embedded (simplified for size)
+    const usaGeoJSON = {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": { "name": "United States" },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [[
+              [-125, 24],
+              [-66, 24],
+              [-66, 50],
+              [-125, 50],
+              [-125, 24]
+            ]]
+          }
+        }
+      ]
+    };
+
+    echarts.registerMap('USA', usaGeoJSON);
+
     const chart = echarts.init(document.getElementById('map'));
 
-    const sanDiego = [ -117.1611, 32.7157 ];
-
+    const sanDiego = [-117.1611, 32.7157];
     const cities = [
       { name: 'New York', coord: [-74.0060, 40.7128] },
       { name: 'Chicago',  coord: [-87.6298, 41.8781] },
@@ -35,7 +56,7 @@
     ];
 
     const flightPaths = cities.map(city => ({
-      coords: [ city.coord, sanDiego ]
+      coords: [city.coord, sanDiego]
     }));
 
     chart.setOption({
@@ -62,14 +83,14 @@
           effect: {
             show: true,
             period: 4,
-            trailLength: 0.3,
+            trailLength: 0.4,
             color: '#FFD700',
             symbolSize: 6
           },
           lineStyle: {
             color: '#FFD700',
             width: 2,
-            opacity: 0.8,
+            opacity: 0.9,
             curveness: 0.2
           },
           data: flightPaths
