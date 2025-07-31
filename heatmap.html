@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alumni Heatmap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet & Plugins -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="https://unpkg.com/leaflet-ant-path/dist/leaflet-ant-path.min.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script>
+    const sanDiego = [32.7157, -117.1611];
+    const map = L.map('map').setView(sanDiego, 4);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Sample alumni hometowns (replace with your real ones)
+    const hometowns = [
+      [34.0522, -118.2437], // LA
+      [40.7128, -74.0060],  // NYC
+      [47.6062, -122.3321], // Seattle
+      [41.8781, -87.6298],  // Chicago
+      [29.7604, -95.3698],  // Houston
+      [39.7392, -104.9903]  // Denver
+    ];
+
+    // Heat layer
+    L.heatLayer(hometowns, {
+      radius: 25,
+      blur: 20,
+      gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}
+    }).addTo(map);
+
+    // Animated arcs to San Diego
+    hometowns.forEach(origin => {
+      L.polyline.antPath([origin, sanDiego], {
+        "paused": false,
+        "reverse": false,
+        "delay": 400,
+        "dashArray": [10, 20],
+        "weight": 3,
+        "color": "#00BFFF",
+        "pulseColor": "#FFD700",
+        "hardwareAccelerated": true
+      }).addTo(map);
+    });
+  </script>
+</body>
+</html>
