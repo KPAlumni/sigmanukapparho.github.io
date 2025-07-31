@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html style="height: 100%">
+<html style="height:100%">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Alumni Travel Map</title>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/js/usa.js"></script>
   <style>
     html, body {
       height: 100%;
       margin: 0;
-      background: #111; /* Dark background */
+      background: #111;
     }
     #map {
       width: 100%;
@@ -37,81 +38,75 @@
       coords: [ city.coord, sanDiego ]
     }));
 
-    fetch('https://geo.datav.aliyun.com/areas/bound/usa.geo.json')
-      .then(res => res.json())
-      .then(usaJson => {
-        echarts.registerMap('USA', usaJson);
-
-        chart.setOption({
-          backgroundColor: '#111',
-          geo: {
-            map: 'USA',
-            roam: false,
-            label: { show: false },
-            itemStyle: {
-              areaColor: '#222',
-              borderColor: '#999'
-            },
-            emphasis: {
-              itemStyle: {
-                areaColor: '#333'
-              }
-            }
+    chart.setOption({
+      backgroundColor: '#111',
+      geo: {
+        map: 'USA',
+        roam: false,
+        label: { show: false },
+        itemStyle: {
+          areaColor: '#222',
+          borderColor: '#999'
+        },
+        emphasis: {
+          itemStyle: {
+            areaColor: '#333'
+          }
+        }
+      },
+      series: [
+        {
+          type: 'lines',
+          coordinateSystem: 'geo',
+          zlevel: 2,
+          effect: {
+            show: true,
+            period: 4,
+            trailLength: 0.3,
+            color: '#FFD700',
+            symbolSize: 6
           },
-          series: [
-            {
-              type: 'lines',
-              coordinateSystem: 'geo',
-              zlevel: 2,
-              effect: {
-                show: true,
-                period: 4,
-                trailLength: 0.3,
-                color: '#FFD700', // gold effect
-                symbolSize: 6
-              },
-              lineStyle: {
-                color: '#FFD700',
-                width: 2,
-                opacity: 0.8,
-                curveness: 0.2
-              },
-              data: flightPaths
-            },
-            {
-              type: 'scatter',
-              coordinateSystem: 'geo',
-              data: cities.map(city => ({
-                name: city.name,
-                value: city.coord
-              })),
-              symbolSize: 6,
-              itemStyle: {
-                color: '#FFD700'
-              }
-            },
-            {
-              type: 'scatter',
-              coordinateSystem: 'geo',
-              data: [{
-                name: 'San Diego',
-                value: sanDiego
-              }],
-              symbolSize: 10,
-              itemStyle: {
-                color: '#FF4500'
-              },
-              label: {
-                show: true,
-                formatter: 'San Diego',
-                color: '#FFD700',
-                fontSize: 14,
-                offset: [0, 10]
-              }
-            }
-          ]
-        });
-      });
+          lineStyle: {
+            color: '#FFD700',
+            width: 2,
+            opacity: 0.8,
+            curveness: 0.2
+          },
+          data: flightPaths
+        },
+        {
+          type: 'scatter',
+          coordinateSystem: 'geo',
+          data: cities.map(city => ({
+            name: city.name,
+            value: city.coord
+          })),
+          symbolSize: 6,
+          itemStyle: {
+            color: '#FFD700'
+          }
+        },
+        {
+          type: 'scatter',
+          coordinateSystem: 'geo',
+          data: [{
+            name: 'San Diego',
+            value: sanDiego
+          }],
+          symbolSize: 10,
+          itemStyle: {
+            color: '#FF4500'
+          },
+          label: {
+            show: true,
+            formatter: 'San Diego',
+            color: '#FFD700',
+            fontSize: 14,
+            offset: [0, 10]
+          }
+        }
+      ]
+    });
   </script>
 </body>
 </html>
