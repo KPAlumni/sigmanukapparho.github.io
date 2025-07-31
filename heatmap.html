@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="height: 100%">
 <head>
   <meta charset="UTF-8" />
-  <title>Alumni Heatmap</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Leaflet & Plugins -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
-  <script src="https://unpkg.com/leaflet-ant-path/dist/leaflet-ant-path.min.js"></script>
-
+  <title>Alumni Travel Map</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
+      margin: 0;
+      background: #111; /* Dark background */
     }
     #map {
-      height: 100vh;
       width: 100%;
+      height: 100%;
     }
   </style>
 </head>
@@ -27,43 +20,100 @@
   <div id="map"></div>
 
   <script>
-    const sanDiego = [32.7157, -117.1611];
-    const map = L.map('map').setView(sanDiego, 4);
+    const chart = echarts.init(document.getElementById('map'));
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
+    const sanDiego = [ -117.1611, 32.7157 ];
 
-    // Sample alumni hometowns (replace with your real ones)
-    const hometowns = [
-      [34.0522, -118.2437], // LA
-      [40.7128, -74.0060],  // NYC
-      [47.6062, -122.3321], // Seattle
-      [41.8781, -87.6298],  // Chicago
-      [29.7604, -95.3698],  // Houston
-      [39.7392, -104.9903]  // Denver
+    const cities = [
+      { name: 'New York', coord: [-74.0060, 40.7128] },
+      { name: 'Chicago',  coord: [-87.6298, 41.8781] },
+      { name: 'Seattle',  coord: [-122.3321, 47.6062] },
+      { name: 'Dallas',   coord: [-96.7970, 32.7767] },
+      { name: 'Miami',    coord: [-80.1918, 25.7617] },
+      { name: 'Denver',   coord: [-104.9903, 39.7392] }
     ];
 
-    // Heat layer
-    L.heatLayer(hometowns, {
-      radius: 25,
-      blur: 20,
-      gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}
-    }).addTo(map);
+    const flightPaths = cities.map(city => ({
+      coords: [ city.coord, sanDiego ]
+    }));
 
-    // Animated arcs to San Diego
-    hometowns.forEach(origin => {
-      L.polyline.antPath([origin, sanDiego], {
-        "paused": false,
-        "reverse": false,
-        "delay": 400,
-        "dashArray": [10, 20],
-        "weight": 3,
-        "color": "#00BFFF",
-        "pulseColor": "#FFD700",
-        "hardwareAccelerated": true
-      }).addTo(map);
+    chart.setOption({
+      backgroundColor: '#111',
+      geo: {
+        map: 'USA',
+        roam: false,
+        label: { show: false },
+        itemStyle: {
+          areaColor: '#222',
+          borderColor: '#999'
+        },
+        emphasis: {
+          itemStyle: {
+            areaColor: '#333'
+          }
+        }
+      },
+      series: [
+        {
+          type: 'lines',
+          coordinateSystem: 'geo',
+          zlevel: 2,
+          effect: {
+            show: true,
+            period: 4,
+            trailLength: 0.3,
+            color: '#FFD700', // gold effect
+            symbolSize: 6
+          },
+          lineStyle: {
+            color: '#FFD700',
+            width: 2,
+            opacity: 0.8,
+            curveness: 0.2
+          },
+          data: flightPaths
+        },
+        {
+          type: 'scatter',
+          coordinateSystem: 'geo',
+          data: cities.map(city => ({
+            name: city.name,
+            value: city.coord
+          })),
+          symbolSize: 6,
+          itemStyle: {
+            color: '#FFD700'
+          }
+        },
+        {
+          type: 'scatter',
+          coordinateSystem: 'geo',
+          data: [{
+            name: 'San Diego',
+            value: sanDiego
+          }],
+          symbolSize: 10,
+          itemStyle: {
+            color: '#FF4500'
+          },
+          label: {
+            show: true,
+            formatter: 'San Diego',
+            color: '#FFD700',
+            fontSize: 14,
+            offset: [0, 10]
+          }
+        }
+      ]
     });
+
+    // Load US map
+    fetch('https://geo.datav.aliyun.com/areas/bound/usa.geo.json')
+      .then(res => res.json())
+      .then(json => {
+        echarts.registerMap('USA', json);
+        chart.setOption({ geo: { map: 'USA' } });
+      });
   </script>
 </body>
 </html>
