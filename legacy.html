@@ -95,6 +95,43 @@
       50%  { transform: scale(1.05); opacity: 0.7; }
       100% { transform: scale(1); opacity: 0.5; }
     }
+
+/* --- Donation + Tiers Buttons --- */
+.action-row{ text-align:center; margin:2rem 0 0; }
+.cta-btn{
+  display:inline-block; margin:0.5rem; padding:0.85rem 1.4rem;
+  border:1px solid #fff; border-radius:8px; color:#fff; text-decoration:none;
+  letter-spacing:0.3px; transition:transform .15s ease, background .15s ease, color .15s ease;
+  white-space:nowrap;
+}
+.cta-btn:hover{ transform:translateY(-2px); background:#fff; color:#000; }
+.section-wrap{ padding:4rem 1rem; background:#000; }
+.section-title{ font-family:'DM Serif Display',serif; color:#fff; text-align:center; margin:0 0 0.75rem; }
+.section-sub{ color:#ccc; text-align:center; margin:0 auto 2rem; max-width:720px; line-height:1.7; }
+.hr-soft{ height:1px; background:linear-gradient(90deg,transparent,#333,transparent); border:0; margin:2.5rem auto; width:78%; }
+
+
+    .tier-grid{
+  display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  max-width:1000px; margin:2rem auto 0;
+}
+.tier-card{
+  background:#0b0b0b; border:1px solid #2a2a2a; border-radius:14px; padding:1.1rem 1.1rem 1.2rem;
+  color:#ddd; text-align:left;
+}
+.tier-name{ font-family:'DM Serif Display',serif; color:#fff; font-size:1.15rem; margin:0 0 0.2rem; }
+.tier-amt{ color:#aaa; font-size:0.95rem; margin:0 0 0.75rem; }
+.tier-list{ margin:0; padding-left:1.1rem; line-height:1.65; color:#cfcfcf; }
+.badge{
+  display:inline-block; padding:0.25rem 0.6rem; border:1px solid #7d7d7d; border-radius:999px;
+  font-size:0.8rem; color:#cfcfcf; margin-left:0.5rem;
+}
+.roll-wrap{ max-width:1000px; margin:2rem auto 0; }
+.roll-pill{
+  display:inline-block; margin:0.35rem; padding:0.45rem 0.75rem; border:1px solid #2a2a2a; border-radius:999px; color:#cfcfcf;
+}
+
+    
   </style>
 </head>
 
@@ -124,29 +161,115 @@
   </p>
 </section>
 
+  <section id="recognition" class="section-wrap" style="background:#111;">
+  <h2 class="section-title">Recognition & Giving Tiers</h2>
+  <p class="section-sub">We honor our donors in the annual report, at chapter events, and on this page. Levels are cumulative within each calendar year.</p>
 
-  <section style="text-align:center; padding:4rem 1rem; background-color:#000;">
-  <h2 style="font-family:'DM Serif Display',serif; color:#fff; margin-bottom:1rem;">
-    Support the Legacy
-  </h2>
-  <p style="color:#ccc;">Choose a giving option that fits you best.</p>
+  <!-- Tier cards -->
+  <div class="tier-grid">
+    <div class="tier-card">
+      <h3 class="tier-name">Founders Circle<span class="badge">Lifetime</span></h3>
+      <p class="tier-amt">$25,000+ (one-time or cumulative)</p>
+      <ul class="tier-list">
+        <li>Perpetual listing at top of donor wall</li>
+        <li>Invitation to private board reception</li>
+        <li>Naming consideration for scholarships/initiatives</li>
+      </ul>
+    </div>
 
-  <!-- One-time -->
-  <div style="margin:2rem 0;">
-    <h3 style="color:#eee;">One-Time Donation</h3>
-    <a href="https://buy.stripe.com/example-once" style="margin:0.5rem; padding:0.8rem 1.5rem; border:1px solid #fff; border-radius:6px; color:#fff; text-decoration:none; display:inline-block;">Give $100</a>
-    <a href="https://buy.stripe.com/example-once" style="margin:0.5rem; padding:0.8rem 1.5rem; border:1px solid #fff; border-radius:6px; color:#fff; text-decoration:none; display:inline-block;">Give $250</a>
-    <a href="https://buy.stripe.com/example-once" style="margin:0.5rem; padding:0.8rem 1.5rem; border:1px solid #fff; border-radius:6px; color:#fff; text-decoration:none; display:inline-block;">Custom Amount</a>
+    <div class="tier-card">
+      <h3 class="tier-name">Diamond</h3>
+      <p class="tier-amt">$10,000–$24,999</p>
+      <ul class="tier-list">
+        <li>Premier listing on donor wall</li>
+        <li>Recognition at annual reception</li>
+        <li>Quarterly impact brief</li>
+      </ul>
+    </div>
+
+    <div class="tier-card">
+      <h3 class="tier-name">Gold</h3>
+      <p class="tier-amt">$5,000–$9,999</p>
+      <ul class="tier-list">
+        <li>Featured listing on donor wall</li>
+        <li>Invitation to scholarship showcase</li>
+      </ul>
+    </div>
+
+    <div class="tier-card">
+      <h3 class="tier-name">Silver</h3>
+      <p class="tier-amt">$1,000–$4,999</p>
+      <ul class="tier-list">
+        <li>Listing on donor wall</li>
+        <li>Event acknowledgement</li>
+      </ul>
+    </div>
+
+    <div class="tier-card">
+      <h3 class="tier-name">Bronze</h3>
+      <p class="tier-amt">$250–$999</p>
+      <ul class="tier-list">
+        <li>Listing on donor wall</li>
+      </ul>
+    </div>
+
+    <div class="tier-card">
+      <h3 class="tier-name">Legacy Circle<span class="badge">Monthly</span></h3>
+      <p class="tier-amt">$25+/mo recurring</p>
+      <ul class="tier-list">
+        <li>Legacy Circle name ribbon on donor wall</li>
+        <li>Annual impact update</li>
+      </ul>
+      <div class="action-row" style="text-align:left; margin:0.75rem 0 0;">
+        <a class="cta-btn" href="#donate">Join Monthly</a>
+      </div>
+    </div>
   </div>
 
-  <!-- Monthly -->
-  <div style="margin:2rem 0;">
-    <h3 style="color:#eee;">Monthly Giving – <em>Legacy Circle</em></h3>
-    <a href="https://buy.stripe.com/example-monthly" style="margin:0.5rem; padding:0.8rem 1.5rem; border:1px solid #fff; border-radius:6px; color:#fff; text-decoration:none; display:inline-block;">$25/month</a>
-    <a href="https://buy.stripe.com/example-monthly" style="margin:0.5rem; padding:0.8rem 1.5rem; border:1px solid #fff; border-radius:6px; color:#fff; text-decoration:none; display:inline-block;">$50/month</a>
-    <a href="https://buy.stripe.com/example-monthly" style="margin:0.5rem; padding:0.8rem 1.5rem; border:1px solid #fff; border-radius:6px; color:#fff; text-decoration:none; display:inline-block;">Custom</a>
+  <!-- Donor Roll placeholder -->
+  <hr class="hr-soft">
+  <h3 class="section-title" style="font-size:1.35rem;">Donor Roll</h3>
+  <p class="section-sub" style="margin-bottom:1rem;">Thank you to the alumni and friends whose generosity powers scholarships and leadership.</p>
+  <div class="roll-wrap" aria-live="polite">
+    <!-- Replace these with the real names from your export -->
+    <span class="roll-pill">A. Donor (Gold)</span>
+    <span class="roll-pill">B. Donor (Silver)</span>
+    <span class="roll-pill">C. Donor (Legacy Circle)</span>
   </div>
 </section>
+
+
+  <section id="donate" class="section-wrap">
+  <h2 class="section-title">Support the Legacy</h2>
+  <p class="section-sub">Choose a one-time gift or join the monthly <em>Legacy Circle</em>. Every contribution funds scholarships and leadership development for Kappa Rho undergraduates.</p>
+
+  <!-- One-time -->
+  <div style="text-align:center;">
+    <h3 style="color:#eee; margin-bottom:0.5rem;">One-Time Donation</h3>
+    <div class="action-row">
+      <a class="cta-btn" href="https://buy.stripe.com/once-50"   aria-label="Donate $50 one time">$50</a>
+      <a class="cta-btn" href="https://buy.stripe.com/once-100"  aria-label="Donate $100 one time">$100</a>
+      <a class="cta-btn" href="https://buy.stripe.com/once-250"  aria-label="Donate $250 one time">$250</a>
+      <a class="cta-btn" href="https://buy.stripe.com/once-500"  aria-label="Donate $500 one time">$500</a>
+      <a class="cta-btn" href="https://buy.stripe.com/once-custom" aria-label="Donate a custom amount one time">Custom Amount</a>
+    </div>
+  </div>
+
+  <hr class="hr-soft">
+
+  <!-- Monthly (recurring) -->
+  <div style="text-align:center;">
+    <h3 style="color:#eee; margin-bottom:0.5rem;">Monthly Giving — <em>Legacy Circle</em></h3>
+    <div class="action-row">
+      <a class="cta-btn" href="https://buy.stripe.com/month-10"  aria-label="Donate $10 monthly">$10/mo</a>
+      <a class="cta-btn" href="https://buy.stripe.com/month-25"  aria-label="Donate $25 monthly">$25/mo</a>
+      <a class="cta-btn" href="https://buy.stripe.com/month-50"  aria-label="Donate $50 monthly">$50/mo</a>
+      <a class="cta-btn" href="https://buy.stripe.com/month-100" aria-label="Donate $100 monthly">$100/mo</a>
+      <a class="cta-btn" href="https://buy.stripe.com/month-custom" aria-label="Donate a custom amount monthly">Custom Monthly</a>
+    </div>
+  </div>
+</section>
+
 
 
   <footer style="background-color:#111; color:#888; font-size:0.9rem; text-align:center; padding:2rem 1rem; line-height:1.6;">
