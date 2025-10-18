@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Monthly Donations | Kappa Rho Legacy Foundation</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      padding: 10% 1rem;
+      margin: 0;
+    }
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom Monthly Donations</h1>
+  <p>
+    If you would like to donate a <strong>custom monthly amount</strong>,
+    please reach out to
+    <a href="mailto:alumni@sigmanukapparho.org">alumni@sigmanukapparho.org</a>
+    and we will arrange a custom payment together.
+  </p>
+  <p><a href="/legacy.html">← Return to the Foundation Page</a></p>
+</body>
+</html>
