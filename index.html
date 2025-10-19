@@ -802,6 +802,43 @@
 }
 
  
+.legacy-link {
+  margin-top: 1.8rem;
+  text-align: center;
+}
+
+.legacy-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+}
+
+.legacy-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes subtleGlow {
+  0% { box-shadow: 0 0 8px rgba(255, 255, 255, 0.25); }
+  50% { box-shadow: 0 0 18px rgba(255, 255, 255, 0.45); }
+  100% { box-shadow: 0 0 8px rgba(255, 255, 255, 0.25); }
+}
+
+.legacy-button {
+  animation: subtleGlow 3s ease-in-out infinite;
+}
 
   
 
@@ -829,6 +866,9 @@
     <div><span id="hours">00</span><small>Hours</small></div>
     <div><span id="minutes">00</span><small>Minutes</small></div>
     <div><span id="seconds">00</span><small>Seconds</small></div>
+  </div>
+  <div class="legacy-link" data-aos="fade-up" data-aos-delay="200">
+    <a href="https://sigmanukapparho.org/legacy" class="legacy-button">Visit the Legacy Foundation →</a>
   </div>
 
 </header>
@@ -1164,6 +1204,7 @@
 
 </body>
 </html>
+
 
 
 
