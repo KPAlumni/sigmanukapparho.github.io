@@ -1,86 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sigma Nu – Kappa Rho Chapter</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Sigma Nu – Kappa Rho</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
-      --bg:#000;
-      --text:#f5f5f5;
+      --bg:#000000;
+      --white:#ffffff;
+      --muted:#d9d9d9;
       --gold1:#ffd700;
-      --gold2:#ff9f1a;
+      --gold2:#ffb02e;
+      --hair:rgba(255,255,255,0.08);
     }
 
     html{scroll-behavior:smooth}
     body{
-      background:#000;
-      color:var(--text);
       margin:0;
-      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--white);
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
       overflow-x:hidden;
-      position:relative;
     }
 
-    /* Glowing background */
+    /* Gentle background glows (gold only, premium + subtle) */
     body::before, body::after{
-      content:''; position:absolute; border-radius:50%;
-      filter:blur(90px); pointer-events:none; z-index:-1;
+      content:"";
+      position:fixed;
+      pointer-events:none;
+      z-index:-1;
+      border-radius:50%;
+      filter:blur(90px);
+      opacity:.65;
     }
     body::before{
-      width:600px; height:600px; top:-120px; left:-120px;
+      width:680px;height:680px;left:-160px;top:-140px;
       background:radial-gradient(circle, rgba(255,215,0,0.35), transparent 70%);
-      animation:driftGold 20s ease-in-out infinite;
+      animation:goldDrift 22s ease-in-out infinite;
     }
     body::after{
-      width:520px; height:520px; bottom:-140px; right:-160px;
-      background:radial-gradient(circle, rgba(0,100,255,0.34), transparent 70%);
-      animation:driftBlue 28s ease-in-out infinite;
+      width:520px;height:520px;right:-180px;bottom:-160px;
+      background:radial-gradient(circle, rgba(255,215,0,0.18), transparent 70%);
+      animation:goldDrift2 28s ease-in-out infinite;
     }
-    @keyframes driftGold{0%{transform:translate(0,0)}50%{transform:translate(100px,140px)}100%{transform:translate(0,0)}}
-    @keyframes driftBlue{0%{transform:translate(0,0)}50%{transform:translate(-120px,-80px)}100%{transform:translate(0,0)}}
+    @keyframes goldDrift{0%{transform:translate(0,0)}50%{transform:translate(120px,120px)}100%{transform:translate(0,0)}}
+    @keyframes goldDrift2{0%{transform:translate(0,0)}50%{transform:translate(-120px,-80px)}100%{transform:translate(0,0)}}
 
-    /* Header */
+    /* HEADER — minimalist, only the hamburger */
     .site-header{
-      position:sticky; top:0; z-index:50;
-      display:flex; align-items:center; gap:12px;
-      padding:14px 18px;
-      background:linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.55));
-      backdrop-filter:saturate(120%) blur(6px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
+      position:fixed; inset:0 0 auto 0; z-index:1000;
+      display:flex; align-items:center;
+      height:64px;
+      padding-left: clamp(14px, 3vw, 24px);
+      padding-right: clamp(14px, 3vw, 24px);
+      background:linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
+      border-bottom:1px solid var(--hair);
     }
 
-    .brand{
-      display:flex; align-items:center; gap:10px; text-decoration:none; margin-left:2px;
-    }
-    .brand-mark{
-      width:34px; height:34px; border-radius:8px;
-      background:linear-gradient(135deg, rgba(255,215,0,0.9), rgba(255,159,26,0.7));
-      box-shadow:0 0 14px rgba(255,215,0,0.4);
-    }
-    .brand-text{
-      font-family:'DM Serif Display',serif;
-      font-size:1.1rem;
-      background:linear-gradient(90deg,var(--gold1),var(--gold2));
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      letter-spacing:.4px;
-    }
-
-    /* Hamburger */
+    /* HAMBURGER — no box, just bars */
     .hamburger{
-      order:-1;
-      width:42px; height:36px; display:grid; place-items:center;
-      border-radius:10px; border:1px solid rgba(255,255,255,0.18);
-      background:rgba(255,255,255,0.04);
-      cursor:pointer; transition:transform .15s ease;
+      appearance:none; border:0; background:transparent; cursor:pointer;
+      width:44px; height:44px; display:grid; place-items:center;
+      margin-left: max(8px, env(safe-area-inset-left, 0px));
     }
-    .hamburger:hover{transform:scale(1.03)}
-    .hamburger .bars, .hamburger .bars::before, .hamburger .bars::after{
-      content:''; display:block; height:2px; width:22px; background:#fff; border-radius:2px;
-      transition:transform .2s ease, opacity .2s ease;
+    .hamburger .bars,
+    .hamburger .bars::before,
+    .hamburger .bars::after{
+      content:"";
+      display:block;
+      width:26px; height:2px; background:var(--white);
+      border-radius:2px;
+      transition:transform .22s ease, opacity .22s ease;
     }
     .hamburger .bars::before{position:relative; margin-top:6px}
     .hamburger .bars::after{position:relative; margin-top:6px}
@@ -88,114 +80,119 @@
     .hamburger.active .bars::before{opacity:0}
     .hamburger.active .bars::after{transform:translateY(-8px) rotate(-90deg)}
 
-    /* Drawer */
-    .drawer{position:fixed; inset:0; display:none;}
+    /* DRAWER (left) */
+    .drawer{position:fixed; inset:0; z-index:1100; display:none;}
     .drawer.open{display:block}
+
+    /* Gradient haze; avoid top clipping & allow safe areas */
     .drawer-backdrop{
       position:absolute; inset:0;
-      background:radial-gradient(1000px 700px at 220px 40%, rgba(255,255,255,0.06), rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.55) 100%);
-      backdrop-filter:blur(2px);
+      background:
+        radial-gradient(1100px 800px at 220px calc(64px + 10vh),
+          rgba(255,255,255,0.05), rgba(0,0,0,0.2) 55%, rgba(0,0,0,0.55) 100%);
+      backdrop-filter: blur(2px);
       opacity:0; transition:opacity .25s ease;
     }
     .drawer.open .drawer-backdrop{opacity:1}
 
+    /* Transparent container for links */
     .drawer-panel{
-      position:absolute; top:0; left:0; height:100vh; width:320px;
-      padding:22px 18px;
+      position:absolute; top:0; left:0; height:100vh; width:min(360px, 92vw);
+      padding:
+        calc( max(24px, 16px + env(safe-area-inset-top, 0px)) + 8px )
+        clamp(16px, 3vw, 20px)
+        24px
+        clamp(18px, 3vw, 22px);
       background:transparent;
-      transform:translateX(-14px); opacity:0;
+      transform:translateX(-18px); opacity:0;
       transition:transform .28s ease, opacity .28s ease;
+      /* make sure nothing gets clipped */
+      overflow:visible;
     }
     .drawer.open .drawer-panel{transform:translateX(0); opacity:1}
 
+    /* Premium text links */
     .nav-title{
-      font-family:'DM Serif Display',serif; margin:2px 2px 12px;
-      font-size:1.1rem; letter-spacing:.4px;
-      background:linear-gradient(90deg,var(--gold1),var(--gold2));
+      font-family:"DM Serif Display",serif;
+      font-size:1.15rem; letter-spacing:.4px;
+      margin:0 0 12px 2px;
+      background:linear-gradient(90deg, var(--gold1), var(--gold2));
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     }
-    .nav-links{display:flex; flex-direction:column; gap:8px}
+    .nav-links{display:flex; flex-direction:column; gap:10px; margin-top:6px}
     .nav-links a{
-      color:#eaeaea; text-decoration:none;
-      padding:10px 12px; border-radius:12px;
-      border:1px solid rgba(255,255,255,0.16);
-      background:linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      backdrop-filter: blur(6px) saturate(110%);
-      box-shadow:0 8px 22px rgba(0,0,0,0.25);
-      transition:transform .16s ease, border .18s ease, background .18s ease;
+      color:#f1f1f1; text-decoration:none; font-size:1.05rem; font-weight:600;
+      padding:8px 2px;
+      border-bottom:1px solid rgba(255,255,255,0.12);
+      transition:color .18s ease, transform .16s ease, border-color .18s ease;
     }
     .nav-links a:hover{
+      color:#ffffff;
       transform:translateX(6px);
-      border-color:rgba(255,255,255,0.3);
-      background:linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+      border-color:rgba(255,215,0,0.45);
+    }
+    .nav-links a .sub{
+      display:block; font-weight:400; font-size:.92rem; color:var(--muted);
+      letter-spacing:.2px; margin-top:2px;
     }
 
     .nav-footer{
-      margin-top:14px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.12);
-      font-size:.9rem; color:#bdbdbd;
+      margin-top:14px; padding-top:12px; border-top:1px solid var(--hair);
+      font-size:.92rem; color:#bdbdbd;
     }
 
-    /* Hero */
+    /* HERO — minimalist, premium */
     .hero{
-      max-width:1100px; margin:72px auto 36px; padding:0 18px; text-align:center;
+      max-width:1100px;
+      padding: calc(64px + 8vh) clamp(16px, 4vw, 24px) 14vh;
+      margin:auto;
+      text-align:center;
+    }
+    .kicker{
+      display:inline-block;
+      font-size:.9rem; letter-spacing:.4px; color:#e7e7e7;
+      border:1px solid var(--hair);
+      border-radius:999px; padding:6px 12px; margin-bottom:14px;
+      backdrop-filter:saturate(115%) blur(4px);
+      background:rgba(255,255,255,0.03);
     }
     .hero h1{
-      font-family:'DM Serif Display',serif;
-      font-size:3.2rem; margin:0 0 8px;
-      background:linear-gradient(90deg,var(--gold1),var(--gold2));
+      margin:0 0 10px;
+      font-family:"DM Serif Display",serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height:1.1;
+      background:linear-gradient(90deg, var(--gold1), var(--gold2));
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      letter-spacing:.6px;
-      text-shadow:0 0 14px rgba(255,215,0,0.35);
+      text-shadow: 0 0 18px rgba(255,215,0,0.28);
+      letter-spacing:.5px;
     }
-    .hero p{color:#ddd; margin:0 auto; max-width:800px}
-
-    /* Cards */
-    .grid{
-      max-width:1100px; margin:28px auto 64px; padding:0 18px;
-      display:grid; grid-template-columns:repeat(12,1fr); gap:18px;
+    .hero p{
+      margin:0 auto; max-width:820px; color:#e5e5e5;
+      font-size: clamp(1rem, 2.1vw, 1.15rem);
+      opacity:.9;
     }
-    .card{
-      grid-column:span 6;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.10);
-      border-radius:14px; padding:18px;
-      box-shadow:0 0 20px rgba(255,215,0,0.06);
-      transition:transform .18s ease, box-shadow .18s ease;
-    }
-    .card:hover{transform:translateY(-3px); box-shadow:0 0 26px rgba(255,215,0,0.16)}
-    .card h2{
-      font-family:'DM Serif Display',serif; margin:0 0 6px 0; font-size:1.5rem;
-      color:var(--text);
-    }
-    .card p{color:#d7d7d7; margin:0 0 10px}
-    .card a.button{
-      display:inline-block; margin-top:8px; padding:.6rem 1.1rem;
-      background:linear-gradient(90deg,var(--gold1),var(--gold2));
-      color:#111; font-weight:700; text-decoration:none; border-radius:8px;
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .card a.button:hover{transform:scale(1.03); box-shadow:0 0 14px rgba(255,215,0,0.45)}
-    @media(max-width:900px){.card{grid-column:span 12}}
 
     footer{
-      text-align:center; color:#999; font-size:.95rem; padding:28px 12px 48px;
-      border-top:1px solid rgba(255,255,255,0.08);
-      background:linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.35));
+      text-align:center; color:#b9b9b9; font-size:.95rem;
+      padding: 24px 12px 48px;
+      border-top:1px solid var(--hair);
+      background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    }
+
+    /* Utility when menu is open */
+    .no-scroll{overflow:hidden}
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important}
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (only hamburger) -->
   <header class="site-header">
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
       <span class="bars"></span>
     </button>
-
-    <a class="brand" href="/">
-      <div class="brand-mark" aria-hidden="true"></div>
-      <div class="brand-text">Sigma Nu · Kappa Rho</div>
-    </a>
   </header>
 
   <!-- DRAWER -->
@@ -204,43 +201,36 @@
     <nav class="drawer-panel" role="navigation" aria-label="Primary">
       <div class="nav-title">Navigation</div>
       <div class="nav-links">
-        <a href="/legacy">Legacy Foundation</a>
-        <a href="/40th.html">40th Anniversary (Archive)</a>
+        <a href="/legacy">
+          Legacy Foundation
+          <span class="sub">Scholarships, leadership & giving</span>
+        </a>
+        <a href="/40th.html">
+          40th Anniversary (Archive)
+          <span class="sub">Photos, schedule, weekend materials</span>
+        </a>
       </div>
       <div class="nav-footer">© Sigma Nu Kappa Rho · UC San Diego</div>
     </nav>
   </aside>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- MAIN (blank, premium hero only) -->
+  <main class="hero">
+    <span class="kicker">Sigma Nu · Kappa Rho · UC San Diego</span>
     <h1>Welcome to Kappa Rho</h1>
     <p>
-      The official hub for Sigma Nu – Kappa Rho: our Legacy Foundation, our 40th Anniversary archive,
-      and future chapter updates.
+      A refined home for our chapter. Use the menu to access the Legacy Foundation
+      and our 40th Anniversary archive. More sections will arrive here soon.
     </p>
-  </section>
-
-  <!-- CARDS -->
-  <section class="grid">
-    <article class="card">
-      <h2>Legacy Foundation</h2>
-      <p>Scholarships and leadership development funded by our alumni community.</p>
-      <a class="button" href="/legacy">Visit Legacy</a>
-    </article>
-
-    <article class="card">
-      <h2>40th Anniversary</h2>
-      <p>Relive the celebration: photos, materials, and the full weekend archive.</p>
-      <a class="button" href="/40th.html">Open the Archive</a>
-    </article>
-  </section>
+  </main>
 
   <footer>
     © <span id="year"></span> Sigma Nu – Kappa Rho. All rights reserved.
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
 
     const hamburger = document.getElementById('hamburger');
     const drawer = document.getElementById('drawer');
@@ -251,17 +241,18 @@
       drawer.setAttribute('aria-hidden','false');
       hamburger.classList.add('active');
       hamburger.setAttribute('aria-expanded','true');
+      document.body.classList.add('no-scroll');
     }
     function closeDrawer(){
       drawer.classList.remove('open');
       drawer.setAttribute('aria-hidden','true');
       hamburger.classList.remove('active');
       hamburger.setAttribute('aria-expanded','false');
+      document.body.classList.remove('no-scroll');
     }
 
     hamburger.addEventListener('click', () => {
-      const isOpen = drawer.classList.contains('open');
-      isOpen ? closeDrawer() : openDrawer();
+      drawer.classList.contains('open') ? closeDrawer() : openDrawer();
     });
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e)=>{
