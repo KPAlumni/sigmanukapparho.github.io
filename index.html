@@ -368,10 +368,22 @@
       Use the menu to access pages for the Legacy Foundation, 40th Anniversary archive, Alumni Advisory Board Interest Form, and LEAD Session Interest Form. 
       More sections coming soon.</p>
 
-    <a href="https://docs.google.com/spreadsheets/d/12Q5SwFzKwP17TxVvZODEQqGuYCIkw33ih6eWWkQtixU/edit?usp=sharing" 
-   class="gold-btn">
-  View Contact Directory
-</a>
+    <!-- Directory button -->
+<a href="#" class="gold-btn" id="dirBtn">View Contact Directory</a>
+
+<!-- Password Modal -->
+<div class="modal" id="pwModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="pwOverlay"></div>
+  <div class="modal-dialog" role="document" aria-labelledby="pwTitle">
+    <h3 id="pwTitle">Enter Access Password</h3>
+    <p class="modal-sub">Please enter the password to continue.</p>
+    <input type="password" id="pwInput" class="modal-input" placeholder="Password" autocomplete="off" />
+    <div class="modal-actions">
+      <button type="button" class="btn ghost" id="pwCancel">Cancel</button>
+      <button type="button" class="btn gold" id="pwSubmit">Continue</button>
+    </div>
+  </div>
+</div>
   </main>
 
   <footer>
@@ -451,26 +463,12 @@ document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && pwModal.cla
     
   </script>
 
-<!-- Directory button -->
-<a href="#" class="gold-btn" id="dirBtn">View Contact Directory</a>
 
-<!-- Password Modal -->
-<div class="modal" id="pwModal" aria-hidden="true" role="dialog" aria-modal="true">
-  <div class="modal-overlay" id="pwOverlay"></div>
-  <div class="modal-dialog" role="document" aria-labelledby="pwTitle">
-    <h3 id="pwTitle">Enter Access Password</h3>
-    <p class="modal-sub">Please enter the password to continue.</p>
-    <input type="password" id="pwInput" class="modal-input" placeholder="Password" autocomplete="off" />
-    <div class="modal-actions">
-      <button type="button" class="btn ghost" id="pwCancel">Cancel</button>
-      <button type="button" class="btn gold" id="pwSubmit">Continue</button>
-    </div>
-  </div>
-</div>
 
   
 </body>
 </html>
+
 
 
 
