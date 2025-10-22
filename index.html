@@ -59,7 +59,6 @@
       position:fixed; inset:0 0 auto 0; z-index:1000;
       height:64px; display:flex; align-items:center;
       background:linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
-      border-bottom:1px solid var(--hair);
       padding-left: max(14px, env(safe-area-inset-left, 0px) + 10px);
       padding-right: max(14px, env(safe-area-inset-right, 0px) + 10px);
     }
@@ -350,10 +349,18 @@
     /* Compact modal layout on mobile */
 @media (max-width: 520px){
   .modal-dialog{
-    width: 88vw;              /* ✅ slightly narrower for breathing room */
-    margin-top: 18vh;
-    padding: 22px 18px 18px;  /* ✅ more inner padding for visual balance */
+    position: relative;
+    left: 0; right: 0;
+    margin: 18vh auto 0;
+    padding: 22px 20px 18px;
     border-radius: 16px;
+
+    /* ✅ true edge padding instead of percentage width */
+    max-width: 420px;
+    width: auto;
+    margin-left: 6vw;
+    margin-right: 6vw;
+    box-sizing: border-box;
   }
 
   .modal-dialog h3{
@@ -392,6 +399,13 @@
   }
 }
 
+
+
+    /* Hide the header hamburger while the drawer is open */
+.menu-open .site-header .hamburger{
+  opacity: 0;
+  pointer-events: none;
+}
 
 
     
@@ -579,6 +593,23 @@ function tryAccess(){
 // clear error as they type
 pwInput.addEventListener('input', clearError);
 
+
+    function openDrawer(){
+  drawer.classList.add('open');
+  drawer.setAttribute('aria-hidden','false');
+  hamburger.classList.add('active');
+  hamburger.setAttribute('aria-expanded','true');
+  document.body.classList.add('no-scroll', 'menu-open');   // <-- add menu-open
+}
+
+function closeDrawer(){
+  drawer.classList.remove('open');
+  drawer.setAttribute('aria-hidden','true');
+  hamburger.classList.remove('active');
+  hamburger.setAttribute('aria-expanded','false');
+  document.body.classList.remove('no-scroll', 'menu-open'); // <-- remove menu-open
+}
+
     
   </script>
 
@@ -587,6 +618,7 @@ pwInput.addEventListener('input', clearError);
   
 </body>
 </html>
+
 
 
 
