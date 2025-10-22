@@ -242,6 +242,76 @@
   box-shadow: 0 0 24px rgba(255, 215, 0, 0.55);
 }
 
+
+    /* ===== Modal ===== */
+.modal{ position:fixed; inset:0; display:none; z-index:1300; }
+.modal.open{ display:block; }
+.modal-overlay{
+  position:absolute; inset:0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(2px);
+}
+.modal-dialog{
+  position:relative; z-index:1;
+  width:min(460px, 92vw);
+  margin: 12vh auto 0; padding: 20px 18px 16px;
+  background: rgba(10,10,10,.96);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.65), 0 0 30px rgba(255,215,0,.08);
+  text-align:left;
+}
+.modal-dialog h3{
+  margin:0 0 6px;
+  font-family:"DM Serif Display", serif;
+  font-size:1.25rem;
+  background: linear-gradient(90deg, var(--gold1), var(--gold2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.modal-sub{ margin:0 0 10px; color:#cfcfcf; font-size:.95rem; }
+.modal-input{
+  width:100%; height:44px; border-radius:10px;
+  background:#0e0e0e; color:#fff;
+  border:1px solid rgba(255,255,255,.16);
+  padding:0 12px; font-size:1rem;
+  outline:none; transition:border-color .18s ease, box-shadow .18s ease;
+}
+.modal-input:focus{
+  border-color: rgba(255,215,0,.55);
+  box-shadow: 0 0 0 3px rgba(255,215,0,.18);
+}
+.modal-actions{ display:flex; gap:10px; justify-content:flex-end; margin-top:12px; }
+.btn{
+  height:40px; padding:0 14px; border-radius:999px; border:1px solid transparent;
+  font-weight:600; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn.gold{
+  color:#000; background:linear-gradient(90deg, var(--gold1), var(--gold2));
+  box-shadow:0 0 14px rgba(255,215,0,.28);
+}
+.btn.gold:hover{ transform:translateY(-1px); box-shadow:0 0 20px rgba(255,215,0,.45); }
+.btn.ghost{
+  background:transparent; color:#e6e6e6; border-color:rgba(255,255,255,.18);
+}
+.btn.ghost:hover{ background:rgba(255,255,255,.06); }
+
+/* small screens: center a bit higher */
+@media (max-width:480px){
+  .modal-dialog{ margin-top: 10vh; padding:18px 16px 14px; }
+}
+
+    /* Darker mobile backdrop + solid panel */
+@media (max-width: 640px){
+  .drawer-backdrop{
+    background: linear-gradient(to bottom, rgba(0,0,0,.82), rgba(0,0,0,.92));
+  }
+  .drawer-panel{
+    background: rgba(0,0,0,.95);
+    box-shadow: 14px 0 30px rgba(0,0,0,.55);
+    border-right: 1px solid rgba(255,255,255,.08);
+  }
+}
+
     
   </style>
 </head>
@@ -294,7 +364,7 @@
      <img src="./quarter-zip-nobg.png"
        alt="Sigma Nu quarter-zip"
        class="hero-image">
-    <p>Welcome to the new hub for everything Kappa Rho! This website is still heavily under development and in its early stages. 
+    <p>Welcome to the new hub for everything Kappa Rho! This website is still 🚧<b>heavily under development</b>🚧 and in its early stages. 
       Use the menu to access pages for the Legacy Foundation, 40th Anniversary archive, Alumni Advisory Board Interest Form, and LEAD Session Interest Form. 
       More sections coming soon.</p>
 
@@ -341,9 +411,67 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
     });
+
+// --- Directory modal ---
+const DIR_URL = 'https://docs.google.com/spreadsheets/d/12Q5SwFzKwP17TxVvZODEQqGuYCIkw33ih6eWWkQtixU/edit?usp=sharing';
+
+const dirBtn   = document.getElementById('dirBtn');
+const pwModal  = document.getElementById('pwModal');
+const pwOverlay= document.getElementById('pwOverlay');
+const pwInput  = document.getElementById('pwInput');
+const pwCancel = document.getElementById('pwCancel');
+const pwSubmit = document.getElementById('pwSubmit');
+
+function openPwModal(){
+  pwModal.classList.add('open');
+  pwModal.setAttribute('aria-hidden','false');
+  // slight delay to ensure focus after paint
+  requestAnimationFrame(()=> pwInput.focus());
+  document.body.classList.add('no-scroll');
+}
+function closePwModal(){
+  pwModal.classList.remove('open');
+  pwModal.setAttribute('aria-hidden','true');
+  pwInput.value = '';
+  document.body.classList.remove('no-scroll');
+}
+function tryAccess(){
+  const v = (pwInput.value || '').trim().toLowerCase();
+  if(v === 'kp'){ window.location.href = DIR_URL; }
+  else { pwInput.select(); pwInput.focus(); }
+}
+
+dirBtn?.addEventListener('click', (e)=>{ e.preventDefault(); openPwModal(); });
+pwOverlay?.addEventListener('click', closePwModal);
+pwCancel?.addEventListener('click', closePwModal);
+pwSubmit?.addEventListener('click', tryAccess);
+pwInput?.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') tryAccess(); });
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && pwModal.classList.contains('open')) closePwModal(); });
+
+    
   </script>
+
+<!-- Directory button -->
+<a href="#" class="gold-btn" id="dirBtn">View Contact Directory</a>
+
+<!-- Password Modal -->
+<div class="modal" id="pwModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="pwOverlay"></div>
+  <div class="modal-dialog" role="document" aria-labelledby="pwTitle">
+    <h3 id="pwTitle">Enter Access Password</h3>
+    <p class="modal-sub">Please enter the password to continue.</p>
+    <input type="password" id="pwInput" class="modal-input" placeholder="Password" autocomplete="off" />
+    <div class="modal-actions">
+      <button type="button" class="btn ghost" id="pwCancel">Cancel</button>
+      <button type="button" class="btn gold" id="pwSubmit">Continue</button>
+    </div>
+  </div>
+</div>
+
+  
 </body>
 </html>
+
 
 
 
