@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDY4WSTQLP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BDY4WSTQLP');
+</script>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <title>Kappa Rho 40th Anniversary</title>
+  <style>
+    body {
+      background-color: #000;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+      z-index: 0;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    /* Golden blob */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      top: -100px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.35), transparent 70%);
+      filter: blur(100px);
+      animation: driftGold 20s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    /* Blue blob */
+    body::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      bottom: -100px;
+      right: -150px;
+      background: radial-gradient(circle, rgba(0, 100, 255, 0.34), transparent 70%);
+      filter: blur(80px);
+      animation: driftBlue 30s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    /* Extra blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .blob-white {
+      width: 500px;
+      height: 500px;
+      top: 20%;
+      left: 60%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+      filter: blur(80px);
+      animation: driftWhite 25s ease-in-out infinite;
+    }
+
+    .blob-ruby {
+      width: 450px;
+      height: 450px;
+      bottom: 10%;
+      right: 10%;
+      background: radial-gradient(circle, rgba(170, 30, 45, 0.43), transparent 70%);
+      filter: blur(70px);
+      animation: driftRuby 15s ease-in-out infinite;
+    }
+
+    @keyframes driftGold {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(100px, 150px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes driftBlue {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(-120px, -80px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes driftWhite {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(-50px, -30px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes driftRuby {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(70px, -60px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, gold, orange);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #ddd;
+      font-weight: 300;
+    }
+
+    .tiers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .tier {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 1.5rem;
+      width: 320px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+    }
+
+    .tier img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .tier h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: gold;
+      letter-spacing: 0.5px;
+    }
+
+    .tier ul {
+      list-style: none;
+      padding-left: 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .tier .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #fff;
+    }
+
+    .tier a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: gold;
+      color: #111;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.2s ease-in-out;
+    }
+
+    .tier a.button:hover {
+      box-shadow: 0 0 12px gold;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      body::before,
+      body::after,
+      .blob-ruby,
+      .blob-white {
+        width: 400px !important;
+        height: 400px !important;
+        opacity: 0.6 !important;
+        filter: blur(30px) !important;
+      }
+
+      .tiers {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      .tier {
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .tier .price {
+        font-size: 1.1rem;
+      }
+
+      .tier a.button {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    @keyframes premiumGlow {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 215, 0, 0);
+    transform: scale(1.0);
+  }
+  50% {
+    box-shadow: 0 0 40px 20px rgba(255, 215, 0, 0.4);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 215, 0, 0);
+    transform: scale(1.0);
+  }
+}
+
+.glow-on-load {
+  animation: premiumGlow 1.5s ease-out forwards;
+}
+
+
+    .event-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem 1rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.event-flyer {
+  max-width: 70%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.event-text h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: gold;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.event-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+    .tiers-section {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.tiers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  font-family: 'DM Serif Display', serif;
+  color: gold;
+  margin-bottom: 1rem;
+}
+
+    .event-overview {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #f5f5f5;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.event-days-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3rem 1.5rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+
+.day-card {
+  scroll-snap-align: start;
+}
+
+
+.day-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.day-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+
+    @media (max-width: 768px) {
+  .day-card,
+  .day-card:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .day-card img {
+    margin: 0 auto;
+  }
+}
+
+
+
+.day-card:hover {
+  transform: scale(1.01);
+}
+
+.day-card h2 {
+  font-family: 'DM Serif Display', serif;
+  color: gold;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.day-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  font-size: 1rem;
+  color: #bbb;
+  font-weight: 300;
+  margin: 0.3rem 0 1rem;
+}
+
+
+.day-card p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+}
+
+
+    .day-content {
+  flex: 1;
+}
+
+.day-card img {
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+}
+
+    @media (max-width: 600px) {
+  .day-card {
+    flex-direction: column;
+    min-width: 100%;
+  }
+
+   .day-card img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+  }
+}
+
+
+
+  .blob-gold {
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.35), transparent 70%);
+  width: 600px;
+  height: 600px;
+  filter: blur(100px);
+  animation: driftGold 20s ease-in-out infinite;
+}
+
+.blob-blue {
+  background: radial-gradient(circle, rgba(0, 100, 255, 0.34), transparent 70%);
+  width: 500px;
+  height: 500px;
+  filter: blur(80px);
+  animation: driftBlue 30s ease-in-out infinite;
+}
+
+    .extra-gold {
+  top: 60%;
+  left: -50px;
+  position: absolute;
+  opacity: 0.3;
+  animation-delay: 4s;
+  z-index: -1;
+}
+
+.extra-blue {
+  bottom: 70%;
+  right: 20%;
+  position: absolute;
+  opacity: 0.3;
+  animation-delay: 6s;
+  z-index: -1;
+}
+
+    .hero-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.5rem;
+  color: gold;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.hero-countdown div {
+  text-align: center;
+}
+
+.hero-countdown span {
+  display: block;
+  font-size: 2.5rem;
+  font-family: 'DM Serif Display', serif;
+}
+
+.hero-countdown small {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+ .snake-container {
+  position: absolute;
+  animation: floatY 7s ease-in-out infinite;
+  z-index: -1;
+}
+
+    .snake-left-container {
+  top: 5%;
+  left: 5%;
+}
+
+.seal-container {
+  position: absolute;
+  top: 37%;
+  right: 5%;
+  z-index: -1;
+  animation: floatY 8s ease-in-out infinite;
+}
+
+    @media (max-width: 768px) {
+  .seal-container {
+    top: 25%; /* or whatever works visually */
+  }
+}
+
+
+    .sn-seal {
+  width: 160px;
+  opacity: 0.4;
+  animation: wiggleReverse 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.2));
+}
+
+    .snake {
+  width: 160px;
+  opacity: 0.45;
+  animation: wiggle 6s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+    @media (min-width: 769px) {
+  .snake {
+    width: 200px; /* or 220px, whatever looks right */
+  }
+}
+
+
+.snake-right {
+  transform: scaleX(-1);
+}
+
+    @keyframes floatY {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(15px); }
+  100% { transform: translateY(0px); }
+}
+
+    @keyframes wiggle {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(7deg); }
+  100% { transform: rotate(0deg); }
+}
+
+    @keyframes wiggleReverse {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(-7deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
+
+
+    .hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, gold, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.hero-cta-button {
+  padding: 0.7rem 1.5rem;
+  background-color: gold;
+  color: #111;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  display: inline-block;
+  transition: 0.2s ease-in-out;
+}
+
+    .hero-cta-button:hover {
+      box-shadow: 0 0 12px gold;
+      transform: scale(1.05);
+    }
+
+    .event-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.intro-left img.event-flyer {
+  max-width: 360px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+}
+
+.intro-right {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.intro-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  color: gold;
+  margin-bottom: 1rem;
+}
+
+.intro-body {
+  font-size: 1.1rem;
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.intro-subinfo {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .event-intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-left img {
+    max-width: 90%;
+  }
+}
+
+    .day-card h3,
+.event-subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: gold;
+  font-family: 'DM Serif Display', serif;
+  margin: 2rem 0 0.3rem; /* keep bottom margin small */
+  letter-spacing: 0.3px;
+}
+
+    .sub-event {
+  margin-bottom: 2rem;
+}
+
+    .day-heading {
+  font-size: 2.2rem;
+  font-family: 'DM Serif Display', serif;
+  color: gold;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-align: left;
+  margin-left: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+      /*
+  border-top: 1px solid rgba(255, 215, 0, 0.15);
+    */
+  padding-top: 3rem;
+}
+
+    .day-heading {
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+    strong, b {
+  color: gold;
+  font-weight: 800;
+}
+
+    .day-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+    .event-divider {
+  height: 2px;
+  border: none;
+  background: linear-gradient(to right, transparent, rgba(255, 215, 0, 0.6), transparent);
+  margin: 2rem 0;
+}
+
+    .sub-event-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sub-event-text {
+  flex: 2;
+}
+
+.sub-event-image img {
+  max-width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .sub-event-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sub-event-image img {
+    max-width: 90%;
+  }
+}
+
+.day-heading {
+  text-align: left;
+}
+
+    .day-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.day-heading {
+  text-align: left;
+  margin-left: 4rem;
+}
+
+.saturday-heading {
+  text-align: right;
+  margin-right: 4rem;
+}
+
+.reverse-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.reverse-layout .sub-event-image {
+  order: 1;
+  flex: 1;
+}
+
+.reverse-layout .sub-event-text {
+  order: 2;
+  flex: 2;
+}
+
+.sub-event-image img {
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .sub-event-row,
+  .reverse-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sub-event-text {
+    order: 1;
+  }
+
+  .sub-event-image {
+    order: 2;
+  }
+
+  .sub-event-image img {
+    max-width: 90%;
+  }
+}
+
+    .sunday-heading {
+  text-align: left;
+  margin-left: 4rem;
+}
+
+    @media (max-width: 768px) {
+  html, body {
+    overflow-x: clip !important; /* blocks scroll AND hides scrollbar */
+    position: relative;
+  }
+}
+
+ 
+.legacy-link {
+  margin-top: 1.8rem;
+  text-align: center;
+}
+
+.legacy-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+}
+
+.legacy-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes subtleGlow {
+  0% { box-shadow: 0 0 8px rgba(255, 255, 255, 0.25); }
+  50% { box-shadow: 0 0 18px rgba(255, 255, 255, 0.45); }
+  100% { box-shadow: 0 0 8px rgba(255, 255, 255, 0.25); }
+}
+
+.legacy-button {
+  animation: subtleGlow 3s ease-in-out infinite;
+}
+
+  
+
+
+
+
+
+    
+  </style>
+</head>
+<body>
+  <div class="blob blob-white"></div>
+  <div class="blob blob-ruby"></div>
+  <!-- Duplicated gold and blue blobs as HTML elements -->
+  <div class="blob blob-gold extra-gold"></div>
+  <div class="blob blob-blue extra-blue"></div>
+
+
+  <header class="hero-section">
+  <h1 class="hero-title">Kappa Rho <span>40th Anniversary</span></h1>
+  <p class="hero-subtitle">October 17–19, 2025 • UC San Diego</p>
+
+  <div class="hero-countdown" id="countdown">
+    <div><span id="days">00</span><small>Days</small></div>
+    <div><span id="hours">00</span><small>Hours</small></div>
+    <div><span id="minutes">00</span><small>Minutes</small></div>
+    <div><span id="seconds">00</span><small>Seconds</small></div>
+  </div>
+  <div class="legacy-link" data-aos="fade-up" data-aos-delay="200">
+    <a href="https://sigmanukapparho.org/legacy" class="legacy-button">Visit the Legacy Foundation →</a>
+  </div>
+
+</header>
+
+<!-- decorative blobs and snakes go outside the header -->
+<div class="snake-container snake-left-container">
+  <img src="snakeSword.png" class="snake snake-left" alt="Snake Left">
+</div>
+
+<div class="seal-container">
+  <img src="sealStylized.png" class="sn-seal" alt="Sigma Nu Seal">
+</div>
+
+  <div class="snake-container" style="top: 60%; left: 5%;">
+  <img src="snakeSword.png" class="snake snake-left" alt="Snake Left">
+</div>
+
+  <div class="seal-container" style="top: 97%; right: 5%;">
+  <img src="sealStylized.png" class="sn-seal" alt="Sigma Nu Seal">
+</div>
+
+
+
+
+
+  <section class="event-intro" data-aos="fade-up">
+  <div class="intro-left">
+    <img src="flyer-final.png" alt="Event Flyer" class="event-flyer">
+  </div>
+  <div class="intro-right">
+    <h2 class="intro-title">Celebrating 40 Years of Brotherhood</h2>
+    <p class="intro-body">
+      Join us for a once-in-a-lifetime celebration as we honor the legacy of Sigma Nu Kappa Rho, 
+      commemorate our 1000th initiated member, and reconnect with generations of alumni. <b>See the detailing of events below.</b>
+    </p>
+    <p class="intro-subinfo">
+      📅 October 17–19, 2025<br>
+      📍 UC San Diego<br>
+    </p>
+    <a href="https://buy.stripe.com/6oUcN49yzfmIbw24rKcZa0a" class="hero-cta-button">Purchase Your Ticket</a>
+  </div>
+</section>
+
+<section class="event-days-section">
+ <!-- FRIDAY -->
+<div class="day-card" data-aos="fade-up">
+  <div class="day-content">
+    <h2 class="day-heading">Friday – October 17th</h2>
+
+    <div class="sub-event-row">
+      <div class="sub-event-text">
+        <h3>Check In & Kickoff</h3>
+        <div class="day-meta">
+          <span>📍 Dirty Birds (formerly Round Table Pizza)</span>
+          <span>🕒 3:00pm – 7:00pm</span>
+        </div>
+        <p>
+          Join us as we kick off the weekend in SNU territory with an afternoon of <b>wings, brotherhood, and beer</b> at Dirty Birds (formerly Round Table Pizza). 
+          Come and check in to receive your commemorative Kappa Rho <b>merchandise and wristband</b> (see below), which will serve as your <b>ticket to all events</b> throughout 
+          the weekend. <i>(All Welcome)</i>
+        </p>
+      </div>
+      <div class="sub-event-image">
+        <img src="dbs-check-in.png" alt="Check In">
+      </div>
+    </div>
+
+    <hr class="event-divider">
+
+    <div class="sub-event-row">
+      <div class="sub-event-text">
+        <h3>Beirut Night</h3>
+        <div class="day-meta">
+          <span>📍 Chapter House</span>
+          <span>🕗 8:00pm – ???</span>
+        </div>
+        <p>
+          After the buzz of old stories and booze has set in, join us as we make our way to a chapter house to <b>re-live and reinvigoroute your youth</b>.
+          Test your <b>Beirut skills</b> against the champions of today and the legends of the past as we come together and enjoy the debauchery of <b>Kappa Rho's signature 
+            pastime</b>. <i>(Brothers Only)</i>
+        </p>
+      </div>
+      <div class="sub-event-image">
+        <img src="ruit-v2.png" alt="Ruit Night">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- SATURDAY -->
+<div class="day-container">
+  <h2 class="day-heading saturday-heading">Saturday – October 18th</h2>
+  <div class="day-card" data-aos="fade-up" data-aos-delay="150">
+    <div class="day-content">
+
+      <div class="sub-event-row reverse-layout">
+        <div class="sub-event-image">
+          <img src="secondary-v1.png" alt="Secondary Check-In">
+        </div>
+        <div class="sub-event-text">
+          <h3>Secondary Check In</h3>
+          <div class="day-meta">
+            <span>📍 UCSD Lecture Hall</span>
+            <span>🕙 10:00am – 11:00am</span>
+          </div>
+          <p>
+            If you <b>missed primary check in</b> on day one, or are arriving later, come by early to our meeting lecture hall (exact location TBD) to grab your merchandise and ticket. 
+            Take some time to mingle and catch up with old friends before we begin the programming of the day.
+          </p>
+        </div>
+      </div>
+
+      <hr class="event-divider">
+
+      <div class="sub-event-row reverse-layout">
+        <div class="sub-event-image">
+          <img src="meeting-v2.png" alt="Chapter Meeting">
+        </div>
+        <div class="sub-event-text">
+          <h3>Active/Alumni Chapter Meeting</h3>
+          <div class="day-meta">
+            <span>📍 UCSD Lecture Hall</span>
+            <span>🕚 11:00am – 12:00pm</span>
+          </div>
+          <p>
+            Join as us we come together as both the active and alumni chapters to conduct an <b>all-chapter meeting.</b> 
+            Throw yourself back into the <b>ritual and tradition</b> never forgotten from your days as an active member. 
+            Write some <b>brother zeros</b> for those brothers who haven't caught enough heat for the mischief they've been up to post-grad, or shoutout 
+            some <b>brother heroes</b> who deserve some recognition for what they've accomplished.
+            <i>(Brothers Only)</i>
+          </p>
+        </div>
+      </div>
+
+      <hr class="event-divider">
+
+      <div class="sub-event-row reverse-layout">
+        <div class="sub-event-image">
+          <img src="crawl-v1.png" alt="Pub Crawl">
+        </div>
+        <div class="sub-event-text">
+          <h3>Pub Crawl</h3>
+          <div class="day-meta">
+            <span>📍 Dirty Birds → Ridgewalk Social → Shores Diner</span>
+            <span>🕛 12:00pm – 3:00pm</span>
+          </div>
+          <p>
+            Following our meeting, <b>raise a glass</b> on a nostalgic pub crawl through campus favorites, or new spots you've never seen before. 
+            <b>Share stories, reconnect with old friends, or meet new ones</b> as we spend an hour each at Dirty Birds, Ridgewalk Social, and Shores Diner.
+          </p>
+        </div>
+      </div>
+
+      <hr class="event-divider">
+
+      <div class="sub-event-row reverse-layout">
+        <div class="sub-event-image">
+          <img src="reception-v1.png" alt="Cocktail Reception">
+        </div>
+        <div class="sub-event-text">
+          <h3>Cocktail Reception</h3>
+          <div class="day-meta">
+            <span>📍 Shores Diner (formerly Porter’s Pub)</span>
+            <span>🕠 5:30pm – 9:00pm</span>
+          </div>
+          <p>
+            After recovering from the events of the afternoon, the active chapter of Kappa Rho is pleased to invite you to our <b>cornerstone event of the weekend.</b> 
+            Join us for a <b>catered dinner and cash bar</b> for a time of fellowship and celebration with one another. About halfway through our evening, we will have a <b>keynote address</b>
+            from the Eminent Commander and other chapter representives with exciting announcements, honors, and more for our incredible chapter and its history. Following this address,
+            the evening will transition into an <b>after party</b> type of celebration, and the bar will stay open for as long as we can take!
+            <i>(Plus One Welcome, more details for plus ones TBA)</i>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+
+</div>
+
+<!-- SUNDAY -->
+<div class="day-container">
+  <h2 class="day-heading sunday-heading">Sunday – October 19th</h2>
+  <div class="day-card" data-aos="fade-up" data-aos-delay="300">
+    <div class="day-content">
+      <div class="sub-event-row">
+        <div class="sub-event-text">
+          <h3>Farewell Barbeque</h3>
+          <div class="day-meta">
+            <span>📍 La Jolla Shores Park</span>
+            <span>🕚 11:00am – 2:00pm</span>
+          </div>
+          <p>
+            To conclude our incredible weekend, bring the whole family out for barbeque on the beach as we close out <b>40 unforgettable years</b>. <i>(Family Welcome)</i>
+          </p>
+        </div>
+        <div class="sub-event-image">
+          <img src="bbq-v3.png" alt="Farewell Barbeque">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</section>
+
+  <!--
+<section class="tiers-section" id="tiers">
+  <p class="subtitle">- Reserve Your Anniversary Package -<br>
+    Each package includes a commemorative polo, wristband, and a ticket to Saturday’s reception.</p>
+  <div class="tiers">
+    <div class="tier" style="width:100%;" data-aos="fade-up" data-aos-delay="300">
+      <img src="tier-rock.png" alt="Anniversary Package" />
+      <h2>$150 Anniversary Package</h2>
+      <ul>
+        <li>Commemorative Polo</li>
+        <li>Anniversary Wristband</li>
+        <li>Reception Ticket</li>
+      </ul>
+      <div class="price">$150</div>
+      <a class="button" href="https://buy.stripe.com/eVq7sK5ij4I4dEa9M4cZa07">Purchase/RSVP</a>
+    </div>
+  </div>
+
+  <p class="subtitle" style="margin-top:2rem;">- Support the Chapter with a Donation -</p>
+  <div class="tiers">
+    <div class="tier" data-aos="fade-up" data-aos-delay="300">
+      <h2>Supporter</h2>
+      <div class="price">$150</div>
+      <a class="button" href="#">Donate</a>
+    </div>
+
+    <div class="tier" data-aos="fade-up" data-aos-delay="500">
+      <h2>Patron</h2>
+      <div class="price">$300</div>
+      <a class="button" href="#">Donate</a>
+    </div>
+
+    <div class="tier" data-aos="fade-up" data-aos-delay="800">
+      <h2>Benefactor</h2>
+      <div class="price">$500</div>
+      <a class="button" href="#">Donate</a>
+    </div>
+  </div>
+</section>
+  -->
+
+
+<!--
+  <section class="tiers-section" id="tiers">
+  <p class="subtitle">- Select your commemorative tier package - <br>Each tier includes a contribution to the Chapter, exclusive commemorative merchandise, <br>and a food & drink
+    ticket for Saturday's dinner and cocktail reception</p>
+  <p class="subtitle"><i>*Designs are not final and subject to slight modifications*</i></p>
+  <div class="tiers">
+    <div class="tier" data-aos="fade-up" data-aos-delay="300">
+      <img src="tier-rock.png" alt="Basic Tier" />
+      <div class="price">$150</div>
+      <a class="button" href="https://buy.stripe.com/eVq7sK5ij4I4dEa9M4cZa07">Purchase/RSVP</a>
+    </div>
+
+    <div class="tier" data-aos="fade-up" data-aos-delay="500">
+      <img src="tier-middle-nopin.png" alt="Middle Tier" />
+      <div class="price">$300</div>
+      <a class="button" href="https://buy.stripe.com/cNi7sK123gqMarYgascZa08">Purchase/RSVP</a>
+    </div>
+
+    <div class="tier" id="premium-tier" data-aos="fade-up" data-aos-delay="800">
+      <img src="white-rose-final.png" alt="Premium Tier" />
+      <div class="price">$500</div>
+      <a class="button" href="https://buy.stripe.com/fZu8wOaCD6QccA69M4cZa00">Purchase/RSVP</a>
+    </div>
+  </section>
+  -->
+
+  <footer>
+    © 2025 Kappa Rho Legacy Foundation. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true,
+    easing: 'ease-out-back'
+  });
+
+  const premium = document.getElementById('premium-tier');
+
+  document.addEventListener('aos:in', function(event) {
+    if (event.target === premium) {
+      // Wait until fade-in is basically done (AOS duration = 1200ms)
+      setTimeout(() => {
+        premium.classList.add('glow-on-load');
+      }, 100); // 100ms buffer after AOS starts — tweak this if needed
+    }
+  });
+</script>
+
+  <script>
+  const targetDate = new Date("2025-10-17T00:00:00").getTime();
+
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (distance % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days.toString().padStart(2, '0');
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+    if (distance < 0) {
+      clearInterval(countdown);
+      document.getElementById("countdown").innerHTML = "Event is Live!";
+    }
+  }, 1000);
+</script>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
