@@ -8,8 +8,8 @@
 
   <style>
     :root{
-      --bg:#000000;
-      --white:#ffffff;
+      --bg:#000;
+      --white:#fff;
       --muted:#d9d9d9;
       --gold1:#ffd700;
       --gold2:#ffb02e;
@@ -25,93 +25,97 @@
       overflow-x:hidden;
     }
 
-    /* Gentle background glows (gold only, premium + subtle) */
+    /* subtle gold glows */
     body::before, body::after{
-      content:"";
-      position:fixed;
-      pointer-events:none;
-      z-index:-1;
-      border-radius:50%;
-      filter:blur(90px);
-      opacity:.65;
+      content:""; position:fixed; z-index:-1; pointer-events:none;
+      border-radius:50%; filter:blur(90px); opacity:.6;
     }
     body::before{
-      width:680px;height:680px;left:-160px;top:-140px;
+      width:660px;height:660px;left:-160px;top:-140px;
       background:radial-gradient(circle, rgba(255,215,0,0.35), transparent 70%);
-      animation:goldDrift 22s ease-in-out infinite;
+      animation:gd1 22s ease-in-out infinite;
     }
     body::after{
       width:520px;height:520px;right:-180px;bottom:-160px;
       background:radial-gradient(circle, rgba(255,215,0,0.18), transparent 70%);
-      animation:goldDrift2 28s ease-in-out infinite;
+      animation:gd2 28s ease-in-out infinite;
     }
-    @keyframes goldDrift{0%{transform:translate(0,0)}50%{transform:translate(120px,120px)}100%{transform:translate(0,0)}}
-    @keyframes goldDrift2{0%{transform:translate(0,0)}50%{transform:translate(-120px,-80px)}100%{transform:translate(0,0)}}
+    @keyframes gd1{0%{transform:translate(0,0)}50%{transform:translate(120px,120px)}100%{transform:translate(0,0)}}
+    @keyframes gd2{0%{transform:translate(0,0)}50%{transform:translate(-120px,-80px)}100%{transform:translate(0,0)}}
 
-    /* HEADER — minimalist, only the hamburger */
+    /* header – only hamburger */
     .site-header{
       position:fixed; inset:0 0 auto 0; z-index:1000;
-      display:flex; align-items:center;
-      height:64px;
-      padding-left: clamp(14px, 3vw, 24px);
-      padding-right: clamp(14px, 3vw, 24px);
+      height:64px; display:flex; align-items:center;
       background:linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
       border-bottom:1px solid var(--hair);
+      padding-left: max(14px, env(safe-area-inset-left, 0px) + 10px);
+      padding-right: max(14px, env(safe-area-inset-right, 0px) + 10px);
     }
 
-    /* HAMBURGER — no box, just bars */
+    /* hamburger (three true lines, evenly spaced) */
     .hamburger{
       appearance:none; border:0; background:transparent; cursor:pointer;
-      width:44px; height:44px; display:grid; place-items:center;
-      margin-left: max(8px, env(safe-area-inset-left, 0px));
+      width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
     }
-    .hamburger .bars,
-    .hamburger .bars::before,
-    .hamburger .bars::after{
-      content:"";
-      display:block;
-      width:26px; height:2px; background:var(--white);
-      border-radius:2px;
+    .hamburger .line{
+      width:26px; height:2px; background:var(--white); border-radius:2px;
       transition:transform .22s ease, opacity .22s ease;
     }
-    .hamburger .bars::before{position:relative; margin-top:6px}
-    .hamburger .bars::after{position:relative; margin-top:6px}
-    .hamburger.active .bars{transform:rotate(45deg)}
-    .hamburger.active .bars::before{opacity:0}
-    .hamburger.active .bars::after{transform:translateY(-8px) rotate(-90deg)}
+    /* turn into X */
+    .hamburger.active .line:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .hamburger.active .line:nth-child(2){opacity:0}
+    .hamburger.active .line:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
-    /* DRAWER (left) */
+    /* drawer */
     .drawer{position:fixed; inset:0; z-index:1100; display:none;}
     .drawer.open{display:block}
 
-    /* Gradient haze; avoid top clipping & allow safe areas */
     .drawer-backdrop{
       position:absolute; inset:0;
-      background:
-        radial-gradient(1100px 800px at 220px calc(64px + 10vh),
-          rgba(255,255,255,0.05), rgba(0,0,0,0.2) 55%, rgba(0,0,0,0.55) 100%);
-      backdrop-filter: blur(2px);
+      background:radial-gradient(1100px 800px at 220px calc(64px + 10vh),
+        rgba(255,255,255,0.05), rgba(0,0,0,0.2) 55%, rgba(0,0,0,0.55) 100%);
+      backdrop-filter:blur(2px);
       opacity:0; transition:opacity .25s ease;
     }
     .drawer.open .drawer-backdrop{opacity:1}
 
-    /* Transparent container for links */
     .drawer-panel{
       position:absolute; top:0; left:0; height:100vh; width:min(360px, 92vw);
       padding:
-        calc( max(24px, 16px + env(safe-area-inset-top, 0px)) + 8px )
+        calc(max(24px, 12px + env(safe-area-inset-top, 0px)) + 14px)
         clamp(16px, 3vw, 20px)
         24px
         clamp(18px, 3vw, 22px);
       background:transparent;
       transform:translateX(-18px); opacity:0;
       transition:transform .28s ease, opacity .28s ease;
-      /* make sure nothing gets clipped */
       overflow:visible;
     }
     .drawer.open .drawer-panel{transform:translateX(0); opacity:1}
 
-    /* Premium text links */
+    /* in-drawer close button (always visible & not clipped) */
+    .drawer-close{
+      position:fixed; /* fixed so it can't be clipped */
+      top: max(10px, env(safe-area-inset-top, 0px) + 10px);
+      left: max(10px, env(safe-area-inset-left, 0px) + 10px);
+      z-index:1200;
+      width:40px; height:40px; display:grid; place-items:center;
+      background:transparent; border:0; cursor:pointer;
+    }
+    .drawer-close .x{
+      position:relative; width:24px; height:24px;
+    }
+    .drawer-close .x::before,
+    .drawer-close .x::after{
+      content:""; position:absolute; left:0; top:50%;
+      width:24px; height:2px; background:var(--white); border-radius:2px;
+    }
+    .drawer-close .x::before{transform:translateY(-50%) rotate(45deg)}
+    .drawer-close .x::after{transform:translateY(-50%) rotate(-45deg)}
+    .drawer-close:focus-visible{outline:2px solid rgba(255,215,0,0.6); outline-offset:2px}
+
+    /* nav links */
     .nav-title{
       font-family:"DM Serif Display",serif;
       font-size:1.15rem; letter-spacing:.4px;
@@ -119,91 +123,83 @@
       background:linear-gradient(90deg, var(--gold1), var(--gold2));
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     }
-    .nav-links{display:flex; flex-direction:column; gap:10px; margin-top:6px}
+    .nav-links{display:flex; flex-direction:column; gap:12px; margin-top:8px}
     .nav-links a{
-      color:#f1f1f1; text-decoration:none; font-size:1.05rem; font-weight:600;
-      padding:8px 2px;
+      color:#f1f1f1; text-decoration:none; font-size:1.06rem; font-weight:700;
+      padding:6px 2px 10px 2px;
       border-bottom:1px solid rgba(255,255,255,0.12);
       transition:color .18s ease, transform .16s ease, border-color .18s ease;
     }
-    .nav-links a:hover{
-      color:#ffffff;
-      transform:translateX(6px);
-      border-color:rgba(255,215,0,0.45);
-    }
+    .nav-links a:hover{color:#fff; transform:translateX(6px); border-color:rgba(255,215,0,0.45)}
     .nav-links a .sub{
-      display:block; font-weight:400; font-size:.92rem; color:var(--muted);
-      letter-spacing:.2px; margin-top:2px;
+      display:block; font-weight:400; font-size:.93rem; color:var(--muted); letter-spacing:.2px; margin-top:2px;
     }
 
     .nav-footer{
-      margin-top:14px; padding-top:12px; border-top:1px solid var(--hair);
+      margin-top:16px; padding-top:12px; border-top:1px solid var(--hair);
       font-size:.92rem; color:#bdbdbd;
     }
 
-    /* HERO — minimalist, premium */
+    /* hero (blank canvas vibe) */
     .hero{
       max-width:1100px;
-      padding: calc(64px + 8vh) clamp(16px, 4vw, 24px) 14vh;
-      margin:auto;
-      text-align:center;
+      padding: calc(64px + 10vh) clamp(16px, 4vw, 24px) 14vh;
+      margin:auto; text-align:center;
     }
     .kicker{
-      display:inline-block;
-      font-size:.9rem; letter-spacing:.4px; color:#e7e7e7;
-      border:1px solid var(--hair);
-      border-radius:999px; padding:6px 12px; margin-bottom:14px;
-      backdrop-filter:saturate(115%) blur(4px);
-      background:rgba(255,255,255,0.03);
+      display:inline-block; font-size:.9rem; letter-spacing:.4px; color:#e7e7e7;
+      border:1px solid var(--hair); border-radius:999px; padding:6px 12px; margin-bottom:14px;
+      backdrop-filter:saturate(115%) blur(4px); background:rgba(255,255,255,0.03);
     }
     .hero h1{
       margin:0 0 10px;
       font-family:"DM Serif Display",serif;
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      line-height:1.1;
+      font-size: clamp(2.2rem, 5vw, 3.6rem); line-height:1.1;
       background:linear-gradient(90deg, var(--gold1), var(--gold2));
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      text-shadow: 0 0 18px rgba(255,215,0,0.28);
+      text-shadow:0 0 18px rgba(255,215,0,0.28);
       letter-spacing:.5px;
     }
     .hero p{
-      margin:0 auto; max-width:820px; color:#e5e5e5;
-      font-size: clamp(1rem, 2.1vw, 1.15rem);
-      opacity:.9;
+      margin:0 auto; max-width:820px; color:#e5e5e5; font-size: clamp(1rem, 2.1vw, 1.15rem); opacity:.9;
     }
 
     footer{
       text-align:center; color:#b9b9b9; font-size:.95rem;
-      padding: 24px 12px 48px;
-      border-top:1px solid var(--hair);
+      padding:24px 12px 48px; border-top:1px solid var(--hair);
       background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
     }
 
-    /* Utility when menu is open */
     .no-scroll{overflow:hidden}
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none !important; transition:none !important}
-    }
+    @media (prefers-reduced-motion: reduce){*{animation:none !important; transition:none !important}}
   </style>
 </head>
 <body>
 
-  <!-- HEADER (only hamburger) -->
+  <!-- header -->
   <header class="site-header">
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
-      <span class="bars"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
     </button>
   </header>
 
-  <!-- DRAWER -->
+  <!-- drawer -->
   <aside class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-backdrop" id="backdrop"></div>
+
+    <!-- Close button inside the drawer so it's always clickable and not clipped -->
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+      <span class="x" aria-hidden="true"></span>
+    </button>
+
     <nav class="drawer-panel" role="navigation" aria-label="Primary">
       <div class="nav-title">Navigation</div>
       <div class="nav-links">
         <a href="/legacy">
           Legacy Foundation
-          <span class="sub">Scholarships, leadership & giving</span>
+          <span class="sub">Scholarships, leadership &amp; giving</span>
         </a>
         <a href="/40th.html">
           40th Anniversary (Archive)
@@ -214,27 +210,22 @@
     </nav>
   </aside>
 
-  <!-- MAIN (blank, premium hero only) -->
+  <!-- main -->
   <main class="hero">
     <span class="kicker">Sigma Nu · Kappa Rho · UC San Diego</span>
     <h1>Welcome to Kappa Rho</h1>
-    <p>
-      A refined home for our chapter. Use the menu to access the Legacy Foundation
-      and our 40th Anniversary archive. More sections will arrive here soon.
-    </p>
+    <p>Use the menu to access the Legacy Foundation and our 40th Anniversary archive. More sections coming soon.</p>
   </main>
 
-  <footer>
-    © <span id="year"></span> Sigma Nu – Kappa Rho. All rights reserved.
-  </footer>
+  <footer>© <span id="year"></span> Sigma Nu – Kappa Rho. All rights reserved.</footer>
 
   <script>
-    const yearEl = document.getElementById('year');
-    yearEl.textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
     const hamburger = document.getElementById('hamburger');
     const drawer = document.getElementById('drawer');
     const backdrop = document.getElementById('backdrop');
+    const drawerClose = document.getElementById('drawerClose');
 
     function openDrawer(){
       drawer.classList.add('open');
@@ -255,8 +246,9 @@
       drawer.classList.contains('open') ? closeDrawer() : openDrawer();
     });
     backdrop.addEventListener('click', closeDrawer);
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    drawerClose.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
     });
   </script>
 </body>
