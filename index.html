@@ -172,6 +172,32 @@
 
     .no-scroll{overflow:hidden}
     @media (prefers-reduced-motion: reduce){*{animation:none !important; transition:none !important}}
+
+/* ---------- Hero image area ---------- */
+.hero--image{
+  max-width:1100px;
+  padding: calc(64px + 6vh) clamp(16px, 4vw, 24px) 12vh; /* space below fixed header */
+  margin:auto;
+  text-align:center;
+}
+
+.hero-image{
+  display:block;
+  margin: 12px auto 0;
+  width: min(760px, 90vw);
+  height:auto;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,.55))
+          drop-shadow(0 0 14px rgba(255,215,0,.20)); /* subtle gold glow */
+  image-rendering:auto;
+}
+
+/* Optional: tighten on very small screens */
+@media (max-width:480px){
+  .hero--image{ padding-top: calc(64px + 4vh); }
+  .hero-image{ width: min(640px, 92vw); }
+}
+
+    
   </style>
 </head>
 <body>
@@ -212,12 +238,13 @@
 
   <!-- main -->
   <main class="hero">
-    <span class="kicker">Sigma Nu · Kappa Rho · UC San Diego</span>
-    <h1>Welcome to Kappa Rho</h1>
+    <h1>Sigma Nu</h1>
+     <img src="./quarter-zip-nobg.png"
+       alt="Sigma Nu quarter-zip"
+       class="hero-image">
     <p>Use the menu to access the Legacy Foundation and our 40th Anniversary archive. More sections coming soon.</p>
   </main>
 
-  <footer>© <span id="year"></span> Sigma Nu – Kappa Rho. All rights reserved.</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -253,3 +280,4 @@
   </script>
 </body>
 </html>
+
