@@ -5,40 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sigma Nu – Kappa Rho Chapter</title>
 
-  <!-- Fonts to match your 40th styling -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
 
   <style>
     :root{
       --bg:#000;
-      --card:#222;
       --text:#f5f5f5;
-      --muted:#cfcfcf;
       --gold1:#ffd700;
       --gold2:#ff9f1a;
-      --link:#ffffff;
-      --glass:rgba(255,255,255,0.08);
     }
 
-    /* Base */
     html{scroll-behavior:smooth}
     body{
       background:#000;
       color:var(--text);
       margin:0;
       font-family:'Inter',sans-serif;
-      line-height:1.6;
       overflow-x:hidden;
       position:relative;
-      z-index:0;
     }
 
-    /* Floating glow “blob” background (gold + blue) */
+    /* Glowing background */
     body::before, body::after{
-      content:'';
-      position:absolute; z-index:-1; border-radius:50%;
-      filter:blur(90px);
-      pointer-events:none;
+      content:''; position:absolute; border-radius:50%;
+      filter:blur(90px); pointer-events:none; z-index:-1;
     }
     body::before{
       width:600px; height:600px; top:-120px; left:-120px;
@@ -53,17 +43,18 @@
     @keyframes driftGold{0%{transform:translate(0,0)}50%{transform:translate(100px,140px)}100%{transform:translate(0,0)}}
     @keyframes driftBlue{0%{transform:translate(0,0)}50%{transform:translate(-120px,-80px)}100%{transform:translate(0,0)}}
 
-    /* Header + Hamburger */
+    /* Header */
     .site-header{
       position:sticky; top:0; z-index:50;
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex; align-items:center; gap:12px;
       padding:14px 18px;
-      background:linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.6));
+      background:linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.55));
       backdrop-filter:saturate(120%) blur(6px);
       border-bottom:1px solid rgba(255,255,255,0.08);
     }
+
     .brand{
-      display:flex; align-items:center; gap:10px; text-decoration:none;
+      display:flex; align-items:center; gap:10px; text-decoration:none; margin-left:2px;
     }
     .brand-mark{
       width:34px; height:34px; border-radius:8px;
@@ -73,67 +64,75 @@
     .brand-text{
       font-family:'DM Serif Display',serif;
       font-size:1.1rem;
-      background:linear-gradient(90deg, var(--gold1), var(--gold2));
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
       letter-spacing:.4px;
     }
 
+    /* Hamburger */
     .hamburger{
+      order:-1;
       width:42px; height:36px; display:grid; place-items:center;
       border-radius:10px; border:1px solid rgba(255,255,255,0.18);
       background:rgba(255,255,255,0.04);
       cursor:pointer; transition:transform .15s ease;
     }
     .hamburger:hover{transform:scale(1.03)}
-    .hamburger .bars{width:22px}
     .hamburger .bars, .hamburger .bars::before, .hamburger .bars::after{
-      content:''; display:block; height:2px; background:#fff; border-radius:2px;
+      content:''; display:block; height:2px; width:22px; background:#fff; border-radius:2px;
       transition:transform .2s ease, opacity .2s ease;
     }
-    .hamburger .bars::before, .hamburger .bars::after{
-      position:relative; width:22px; margin-top:6px;
-    }
+    .hamburger .bars::before{position:relative; margin-top:6px}
+    .hamburger .bars::after{position:relative; margin-top:6px}
     .hamburger.active .bars{transform:rotate(45deg)}
     .hamburger.active .bars::before{opacity:0}
     .hamburger.active .bars::after{transform:translateY(-8px) rotate(-90deg)}
 
-    /* Slide-out Nav */
-    .drawer{
-      position:fixed; inset:0; display:none;
-    }
+    /* Drawer */
+    .drawer{position:fixed; inset:0; display:none;}
     .drawer.open{display:block}
     .drawer-backdrop{
-      position:absolute; inset:0; background:rgba(0,0,0,0.45); backdrop-filter:blur(2px);
+      position:absolute; inset:0;
+      background:radial-gradient(1000px 700px at 220px 40%, rgba(255,255,255,0.06), rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.55) 100%);
+      backdrop-filter:blur(2px);
+      opacity:0; transition:opacity .25s ease;
     }
+    .drawer.open .drawer-backdrop{opacity:1}
+
     .drawer-panel{
-      position:absolute; top:0; left:0; height:100vh; width:280px;
+      position:absolute; top:0; left:0; height:100vh; width:320px;
       padding:22px 18px;
-      background:rgba(20,20,20,0.98);
-      border-right:1px solid rgba(255,255,255,0.08);
-      transform:translateX(-100%);
-      transition:transform .25s ease;
-      box-shadow:0 0 24px rgba(0,0,0,0.45);
+      background:transparent;
+      transform:translateX(-14px); opacity:0;
+      transition:transform .28s ease, opacity .28s ease;
     }
-    .drawer.open .drawer-panel{transform:translateX(0)}
+    .drawer.open .drawer-panel{transform:translateX(0); opacity:1}
 
     .nav-title{
-      font-family:'DM Serif Display',serif; margin:6px 2px 14px;
-      font-size:1.15rem; letter-spacing:.5px;
-      background:linear-gradient(90deg, var(--gold1), var(--gold2));
+      font-family:'DM Serif Display',serif; margin:2px 2px 12px;
+      font-size:1.1rem; letter-spacing:.4px;
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     }
-    .nav-links{display:flex; flex-direction:column; gap:6px; margin-top:6px}
+    .nav-links{display:flex; flex-direction:column; gap:8px}
     .nav-links a{
-      color:#ddd; text-decoration:none; padding:10px 10px; border-radius:10px;
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(255,255,255,0.02);
-      transition:background .2s ease, transform .15s ease, border .2s ease;
+      color:#eaeaea; text-decoration:none;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid rgba(255,255,255,0.16);
+      background:linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      backdrop-filter: blur(6px) saturate(110%);
+      box-shadow:0 8px 22px rgba(0,0,0,0.25);
+      transition:transform .16s ease, border .18s ease, background .18s ease;
     }
-    .nav-links a:hover{background:rgba(255,255,255,0.06); transform:translateX(4px); border-color:rgba(255,255,255,0.18)}
+    .nav-links a:hover{
+      transform:translateX(6px);
+      border-color:rgba(255,255,255,0.3);
+      background:linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+    }
 
     .nav-footer{
-      margin-top:16px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.08);
-      font-size:.9rem; color:#aaa;
+      margin-top:14px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.12);
+      font-size:.9rem; color:#bdbdbd;
     }
 
     /* Hero */
@@ -143,21 +142,21 @@
     .hero h1{
       font-family:'DM Serif Display',serif;
       font-size:3.2rem; margin:0 0 8px;
-      background:linear-gradient(90deg, var(--gold1), var(--gold2));
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
       letter-spacing:.6px;
       text-shadow:0 0 14px rgba(255,215,0,0.35);
     }
     .hero p{color:#ddd; margin:0 auto; max-width:800px}
 
-    /* “Cards” for hub sections */
+    /* Cards */
     .grid{
       max-width:1100px; margin:28px auto 64px; padding:0 18px;
       display:grid; grid-template-columns:repeat(12,1fr); gap:18px;
     }
     .card{
       grid-column:span 6;
-      background:var(--glass);
+      background:rgba(255,255,255,0.05);
       border:1px solid rgba(255,255,255,0.10);
       border-radius:14px; padding:18px;
       box-shadow:0 0 20px rgba(255,215,0,0.06);
@@ -171,76 +170,58 @@
     .card p{color:#d7d7d7; margin:0 0 10px}
     .card a.button{
       display:inline-block; margin-top:8px; padding:.6rem 1.1rem;
-      background:linear-gradient(90deg, var(--gold1), var(--gold2));
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
       color:#111; font-weight:700; text-decoration:none; border-radius:8px;
       transition:transform .15s ease, box-shadow .15s ease;
     }
     .card a.button:hover{transform:scale(1.03); box-shadow:0 0 14px rgba(255,215,0,0.45)}
     @media(max-width:900px){.card{grid-column:span 12}}
 
-    /* Footer */
     footer{
       text-align:center; color:#999; font-size:.95rem; padding:28px 12px 48px;
       border-top:1px solid rgba(255,255,255,0.08);
       background:linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.35));
     }
-
-    /* Small helpers */
-    .kicker{
-      display:inline-block; padding:6px 10px; margin-bottom:8px;
-      border-radius:999px; border:1px solid rgba(255,255,255,0.14);
-      background:rgba(255,255,255,0.04); color:#eaeaea; font-size:.85rem;
-      letter-spacing:.4px;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="site-header">
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span class="bars"></span>
+    </button>
+
     <a class="brand" href="/">
       <div class="brand-mark" aria-hidden="true"></div>
       <div class="brand-text">Sigma Nu · Kappa Rho</div>
     </a>
-
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
-      <span class="bars"></span>
-    </button>
   </header>
 
-  <!-- Drawer Nav -->
+  <!-- DRAWER -->
   <aside class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-backdrop" id="backdrop"></div>
     <nav class="drawer-panel" role="navigation" aria-label="Primary">
       <div class="nav-title">Navigation</div>
       <div class="nav-links">
-        <a href="/">Home</a>
         <a href="/legacy">Legacy Foundation</a>
-        <a href="/alumni">Alumni Network</a>
-        <a href="/active">Active Chapter</a>
-        <a href="/contact">Contact</a>
         <a href="/40th.html">40th Anniversary (Archive)</a>
       </div>
-
-      <div class="nav-footer">
-        © Sigma Nu Kappa Rho · UC San Diego
-      </div>
+      <div class="nav-footer">© Sigma Nu Kappa Rho · UC San Diego</div>
     </nav>
   </aside>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <span class="kicker">Founded 1984 · UC San Diego</span>
     <h1>Welcome to Kappa Rho</h1>
     <p>
-      This is the official hub for Sigma Nu – Kappa Rho: news, alumni connections, the Legacy Foundation,
-      active chapter updates, and archives. Same look, broader mission.
+      The official hub for Sigma Nu – Kappa Rho: our Legacy Foundation, our 40th Anniversary archive,
+      and future chapter updates.
     </p>
   </section>
 
-  <!-- Hub Cards -->
+  <!-- CARDS -->
   <section class="grid">
-
     <article class="card">
       <h2>Legacy Foundation</h2>
       <p>Scholarships and leadership development funded by our alumni community.</p>
@@ -248,35 +229,10 @@
     </article>
 
     <article class="card">
-      <h2>Alumni Network</h2>
-      <p>Stay connected, update your info, and help us reach more brothers.</p>
-      <a class="button" href="/alumni">Alumni Portal</a>
-    </article>
-
-    <article class="card">
-      <h2>Active Chapter</h2>
-      <p>Current leadership, calendar, service, and campus highlights.</p>
-      <a class="button" href="/active">See Updates</a>
-    </article>
-
-    <article class="card">
-      <h2>Contact</h2>
-      <p>Questions, partnerships, or press. We’d love to hear from you.</p>
-      <a class="button" href="/contact">Get in Touch</a>
-    </article>
-
-    <article class="card">
       <h2>40th Anniversary</h2>
       <p>Relive the celebration: photos, materials, and the full weekend archive.</p>
       <a class="button" href="/40th.html">Open the Archive</a>
     </article>
-
-    <article class="card">
-      <h2>Give</h2>
-      <p>Support the chapter and the Legacy Foundation’s mission.</p>
-      <a class="button" href="/legacy#donate">Donate</a>
-    </article>
-
   </section>
 
   <footer>
@@ -284,10 +240,8 @@
   </footer>
 
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Drawer controls
     const hamburger = document.getElementById('hamburger');
     const drawer = document.getElementById('drawer');
     const backdrop = document.getElementById('backdrop');
@@ -297,7 +251,6 @@
       drawer.setAttribute('aria-hidden','false');
       hamburger.classList.add('active');
       hamburger.setAttribute('aria-expanded','true');
-      // focus management could go here if you want to trap focus
     }
     function closeDrawer(){
       drawer.classList.remove('open');
@@ -306,7 +259,7 @@
       hamburger.setAttribute('aria-expanded','false');
     }
 
-    hamburger.addEventListener('click', (e)=>{
+    hamburger.addEventListener('click', () => {
       const isOpen = drawer.classList.contains('open');
       isOpen ? closeDrawer() : openDrawer();
     });
