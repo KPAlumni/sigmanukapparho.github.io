@@ -350,20 +350,22 @@
     /* Compact modal layout on mobile */
 @media (max-width: 520px){
   .modal-dialog{
-    width: 92vw;
+    width: 88vw;              /* ✅ slightly narrower for breathing room */
     margin-top: 18vh;
-    padding: 18px 16px 16px;
-    border-radius: 14px;
+    padding: 22px 18px 18px;  /* ✅ more inner padding for visual balance */
+    border-radius: 16px;
   }
 
   .modal-dialog h3{
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     text-align: center;
+    margin-bottom: 6px;
   }
 
   .modal-sub{
     font-size: .9rem;
     text-align: center;
+    margin-bottom: 10px;
   }
 
   .modal-input{
@@ -372,23 +374,24 @@
     padding: 0 10px;
     width: 100%;
     box-sizing: border-box;
+    margin-top: 6px;
   }
 
-  /* Center the buttons and let them auto-size */
   .modal-actions{
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 14px;
+    margin-top: 16px;
   }
 
   .btn{
-    width: auto;              /* ✅ hug content instead of filling width */
-    min-width: 90px;          /* gives consistent touch size */
+    width: auto;
+    min-width: 90px;
     font-size: .95rem;
     padding: 0 18px;
   }
 }
+
 
 
     
@@ -443,7 +446,9 @@
      <img src="./quarter-zip-nobg.png"
        alt="Sigma Nu quarter-zip"
        class="hero-image">
-    <p>Welcome to the new hub for everything Kappa Rho! This website is still 🚧<b>heavily under development</b>🚧 and in its early stages. 
+    <p><b>Welcome to the new hub for everything Kappa Rho!</b></p>
+      
+      <p>This website is still 🚧<b>heavily under development</b>🚧 and in its early stages. 
       Use the menu to access pages for the Legacy Foundation, 40th Anniversary archive, Alumni Advisory Board Interest Form, and LEAD Session Interest Form. 
       More sections coming soon.</p>
 
@@ -582,6 +587,7 @@ pwInput.addEventListener('input', clearError);
   
 </body>
 </html>
+
 
 
 
