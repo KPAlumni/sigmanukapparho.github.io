@@ -126,13 +126,15 @@
     .drawer-close:focus-visible{outline:2px solid rgba(255,215,0,0.6); outline-offset:2px}
 
     /* nav links */
-    .nav-title{
-      font-family:"DM Serif Display",serif;
-      font-size:1.15rem; letter-spacing:.4px;
-      margin:0 0 12px 2px;
-      background:linear-gradient(90deg, var(--gold1), var(--gold2));
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    }
+    /* More space between the fixed X and the "Navigation" title */
+.nav-title{
+  font-family:"DM Serif Display",serif;
+  font-size:1.15rem; letter-spacing:.4px;
+  margin: 0 0 14px;                 /* a touch more below */
+  padding-left: 34px;               /* ✅ pushes title away from the X */
+  background:linear-gradient(90deg, var(--gold1), var(--gold2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
     .nav-links{display:flex; flex-direction:column; gap:12px; margin-top:8px}
     .nav-links a{
       color:#f1f1f1; text-decoration:none; font-size:1.06rem; font-weight:700;
@@ -618,6 +620,7 @@ function closeDrawer(){
   
 </body>
 </html>
+
 
 
 
