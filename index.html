@@ -270,16 +270,25 @@
 }
 .modal-sub{ margin:0 0 10px; color:#cfcfcf; font-size:.95rem; }
 .modal-input{
-  width:100%; height:44px; border-radius:10px;
-  background:#0e0e0e; color:#fff;
+  display:block;
+  width:100%;
+  height:44px;
+  border-radius:10px;
+  background:#0e0e0e;
+  color:#fff;
   border:1px solid rgba(255,255,255,.16);
-  padding:0 12px; font-size:1rem;
-  outline:none; transition:border-color .16s ease, box-shadow .16s ease;
+  padding:0 12px;
+  font-size:1rem;
+  outline:none;
+  transition:border-color .18s ease, box-shadow .18s ease;
+  box-sizing:border-box;        /* ✅ prevents overhang */
+  margin-top:6px;               /* adds space below subtitle */
 }
 .modal-input:focus{
-  border-color: rgba(255,215,0,.60);
-  box-shadow: 0 0 0 2px rgba(255,215,0,.22);
+  border-color:rgba(255,215,0,.60);
+  box-shadow:0 0 0 2px rgba(255,215,0,.22);
 }
+
 /* invalid state */
 .modal-input.is-invalid{
   border-color: rgba(255,77,79,.95);
@@ -341,9 +350,9 @@
     /* Compact modal layout on mobile */
 @media (max-width: 520px){
   .modal-dialog{
-    width: 92vw;             /* fit to screen width */
-    margin-top: 18vh;        /* slightly lower on screen */
-    padding: 16px 14px 14px;
+    width: 92vw;
+    margin-top: 18vh;
+    padding: 18px 16px 16px;
     border-radius: 14px;
   }
 
@@ -365,17 +374,22 @@
     box-sizing: border-box;
   }
 
+  /* Center the buttons and let them auto-size */
   .modal-actions{
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
   }
 
   .btn{
-    width: 100%;
+    width: auto;              /* ✅ hug content instead of filling width */
+    min-width: 90px;          /* gives consistent touch size */
     font-size: .95rem;
+    padding: 0 18px;
   }
 }
+
 
     
   </style>
@@ -568,6 +582,7 @@ pwInput.addEventListener('input', clearError);
   
 </body>
 </html>
+
 
 
 
