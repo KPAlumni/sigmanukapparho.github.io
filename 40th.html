@@ -836,6 +836,24 @@
 .legacy-button { animation: subtleGoldGlow 3s ease-in-out infinite; }  
 
 
+.back-home {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #dcdcdc;
+  text-decoration: none;
+  z-index: 9999;
+  transition: all 0.25s ease;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.25);
+}
+
+.back-home:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.55);
+  transform: translateX(-2px) scale(1.05);
+}
 
 
 
@@ -843,6 +861,8 @@
   </style>
 </head>
 <body>
+  <a href="/" class="back-home" aria-label="Back to homepage">←</a>
+
   <div class="blob blob-white"></div>
   <div class="blob blob-ruby"></div>
   <!-- Duplicated gold and blue blobs as HTML elements -->
