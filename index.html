@@ -452,6 +452,11 @@
         LEAD Sessions Interest Form 🔗↗️
         <span class="sub">Be a LEAD Session Guest Speaker</span>
         </a>
+        <a href="#" class="protected" data-url="https://docs.google.com/spreadsheets/d/12Q5SwFzKwP17TxVvZODEQqGuYCIkw33ih6eWWkQtixU/edit?usp=sharing">
+        Contact Directory 🔗↗️
+        <span class="sub">Check our current contact info database</span>
+        </a>
+
       </div>
     </nav>
   </aside>
@@ -468,8 +473,7 @@
       Please check out the menu in the top left corner of your screen to navigate to the different Kappa Rho resources currently available.
       More sections coming soon!</p>
 
-    <!-- Directory button -->
-<a href="#" class="gold-btn" id="dirBtn">View Contact Directory</a>
+
 
 <!-- Password Modal -->
 <div class="modal" id="pwModal" aria-hidden="true" role="dialog" aria-modal="true">
@@ -612,6 +616,16 @@ function closeDrawer(){
   document.body.classList.remove('no-scroll', 'menu-open'); // <-- remove menu-open
 }
 
+    // Reuse password modal for protected menu links
+document.querySelectorAll('.protected').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    DIR_URL = link.dataset.url; // dynamically assign where to go after correct password
+    closeDrawer();               // optional: close the side menu
+    openPwModal();               // open existing password modal
+  });
+});
+
     
   </script>
 
@@ -620,6 +634,7 @@ function closeDrawer(){
   
 </body>
 </html>
+
 
 
 
