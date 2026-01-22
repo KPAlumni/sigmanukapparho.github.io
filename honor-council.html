@@ -110,7 +110,7 @@
 
   <!-- Your existing site header / drawer can remain above -->
 
-  <main>
+<main id="protectedPage" style="display:none;">
 
     <section class="hc-header">
       <h1>Honor Council</h1>
@@ -158,6 +158,34 @@
   </main>
 
   <!-- Your existing footer can remain below -->
+<script>
+  const protectedPage = document.getElementById('protectedPage');
 
+  // Open password modal immediately on page load
+  window.addEventListener('load', () => {
+    openPwModal(); // existing function from your site
+  });
+
+  // OVERRIDE tryAccess ONLY on this page
+  function tryAccess(){
+    const v = (pwInput.value || '').trim().toLowerCase();
+
+    if(!v){
+      showError('Password required.');
+      return;
+    }
+
+    if(v === 'kp'){          // same password as main page
+      closePwModal();
+      protectedPage.style.display = 'block';
+      return;
+    }
+
+    showError('Incorrect password. Please try again.');
+  }
+</script>
+
+
+  
 </body>
 </html>
