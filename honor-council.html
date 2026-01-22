@@ -5,191 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Honor Council | Sigma Nu Kappa Rho</title>
 
-  <!-- Page-specific styles ONLY -->
+  <!-- Page-specific styles -->
   <style>
     /* ===== Honor Council Page ===== */
 
-    .hc-container{
-      max-width: 960px;
+    .hc-page{
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 4rem 1.5rem 6rem;
+      padding: 6rem 1.5rem 6rem;
     }
 
-    .hc-hero{
+    .hc-header{
       text-align: center;
       margin-bottom: 4rem;
     }
 
-    .hc-kicker{
-      display:inline-block;
-      font-size:.9rem;
-      letter-spacing:.4px;
-      color:#e7e7e7;
-      border:1px solid var(--hair);
-      border-radius:999px;
-      padding:6px 14px;
-      margin-bottom:1.2rem;
-      backdrop-filter:saturate(115%) blur(4px);
-      background:rgba(255,255,255,0.03);
+    .hc-header h1{
+      font-family: "Cinzel", serif;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      margin: 0 0 .5rem;
+      background: linear-gradient(90deg, var(--gold1), var(--gold2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hc-title{
-      font-family:"Cinzel", serif;
-      font-size:clamp(2.2rem,5vw,3.4rem);
-      line-height:1.1;
-      margin:0 0 1rem;
-      background:linear-gradient(90deg,var(--gold1),var(--gold2));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      text-shadow:0 0 18px rgba(255,215,0,.25);
+    .hc-header p{
+      color: #dcdcdc;
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      opacity: .9;
     }
 
-    .hc-lead{
-      max-width:760px;
-      margin:0 auto;
-      font-size:clamp(1rem,2vw,1.15rem);
-      color:#e5e5e5;
-      opacity:.9;
+    .hc-sections{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
     }
 
     .hc-section{
-      margin-top:4rem;
+      border: 1px solid var(--hair);
+      border-radius: 18px;
+      padding: 2rem 1.75rem 2.25rem;
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(4px);
     }
 
-    .hc-section-title{
-      font-family:"DM Serif Display", serif;
-      font-size:1.6rem;
-      margin-bottom:.75rem;
-      background:linear-gradient(90deg,var(--gold1),var(--gold2));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+    .hc-section h2{
+      font-family: "DM Serif Display", serif;
+      font-size: 1.45rem;
+      margin: 0 0 .75rem;
+      background: linear-gradient(90deg, var(--gold1), var(--gold2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hc-text{
-      color:#e0e0e0;
-      line-height:1.7;
-      max-width:840px;
+    .hc-section p{
+      color: #e0e0e0;
+      font-size: .98rem;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
     }
 
-    .hc-list{
-      margin-top:1rem;
-      padding-left:1.2rem;
-      color:#e0e0e0;
-      line-height:1.8;
+    .hc-section a{
+      font-weight: 600;
+      color: var(--gold1);
+      text-decoration: none;
     }
 
-    .hc-divider{
-      border:none;
-      border-top:1px solid var(--hair);
-      margin:3rem 0;
+    .hc-section a:hover{
+      text-decoration: underline;
     }
 
-    .hc-muted{
-      font-size:.95rem;
-      color:#bdbdbd;
+    .hc-note{
+      margin-top: 4rem;
+      text-align: center;
+      font-size: .95rem;
+      color: #bdbdbd;
     }
-
-    .hc-links a{
-      color:var(--gold1);
-      text-decoration:none;
-    }
-
-    .hc-links a:hover{
-      text-decoration:underline;
-    }
-
   </style>
 </head>
 
 <body>
 
-  <!-- header / drawer come from your global layout -->
+  <!-- Your existing header + drawer live above this -->
 
   <main class="hero">
-    <div class="hc-container">
+    <div class="hc-page">
 
-      <!-- HERO -->
-      <section class="hc-hero">
-        <span class="hc-kicker">Governance · Accountability · Standards</span>
-        <h1 class="hc-title">Honor Council</h1>
-        <p class="hc-lead">
-          The Honor Council of Sigma Nu Kappa Rho is responsible for upholding the
-          chapter’s standards through fair, confidential, and consistent
-          judicial review.
+      <!-- Header -->
+      <section class="hc-header">
+        <h1>Honor Council</h1>
+        <p>
+          Central access point for Honor Council records, documentation,
+          and administrative materials for Sigma Nu Kappa Rho.
         </p>
       </section>
 
-      <!-- PURPOSE -->
-      <section class="hc-section">
-        <h2 class="hc-section-title">Purpose</h2>
-        <p class="hc-text">
-          The Honor Council exists to preserve the integrity of the chapter by
-          addressing conduct matters with due process, impartiality, and respect
-          for all individuals involved.
-        </p>
+      <!-- Sections -->
+      <section class="hc-sections">
+
+        <div class="hc-section">
+          <h2>Meeting Minutes</h2>
+          <p>
+            Official records of Honor Council meetings, including attendance,
+            motions, decisions, and outcomes.
+          </p>
+          <a href="#">Access Meeting Minutes →</a>
+        </div>
+
+        <div class="hc-section">
+          <h2>Late Dues Records</h2>
+          <p>
+            Records documenting late dues payments, payment plans, and related
+            administrative actions.
+          </p>
+          <a href="#">Access Dues Records →</a>
+        </div>
+
+        <div class="hc-section">
+          <h2>Disciplinary & Sanctions Records</h2>
+          <p>
+            Records of disciplinary actions, sanctions, probationary measures,
+            or other determinations issued by the Honor Council.
+          </p>
+          <a href="#">Access Disciplinary Records →</a>
+        </div>
+
       </section>
 
-      <hr class="hc-divider" />
-
-      <!-- AUTHORITY -->
-      <section class="hc-section">
-        <h2 class="hc-section-title">Authority & Scope</h2>
-        <ul class="hc-list">
-          <li>Adjudicates alleged violations of chapter bylaws and codes of conduct</li>
-          <li>Ensures procedural fairness and confidentiality</li>
-          <li>Determines responsibility and applies sanctions when appropriate</li>
-          <li>Maintains accurate and secure records</li>
-        </ul>
-      </section>
-
-      <hr class="hc-divider" />
-
-      <!-- STRUCTURE -->
-      <section class="hc-section">
-        <h2 class="hc-section-title">Structure</h2>
-        <ul class="hc-list">
-          <li>Chair</li>
-          <li>Voting Members</li>
-          <li>Recording Secretary</li>
-          <li>Advisor (non-voting)</li>
-        </ul>
-      </section>
-
-      <hr class="hc-divider" />
-
-      <!-- PROCESS -->
-      <section class="hc-section">
-        <h2 class="hc-section-title">Judicial Process Overview</h2>
-        <ol class="hc-list">
-          <li>Case referral or intake</li>
-          <li>Preliminary review</li>
-          <li>Hearing and fact-finding</li>
-          <li>Deliberation</li>
-          <li>Determination and sanctions (if applicable)</li>
-          <li>Notification and appeals</li>
-        </ol>
-      </section>
-
-      <hr class="hc-divider" />
-
-      <!-- DOCUMENTS -->
-      <section class="hc-section hc-links">
-        <h2 class="hc-section-title">Documents & Resources</h2>
-        <ul class="hc-list">
-          <li><a href="#">Chapter Bylaws</a></li>
-          <li><a href="#">Code of Conduct</a></li>
-          <li><a href="#">Judicial Procedures</a></li>
-          <li><a href="#">Sanctions Matrix</a></li>
-        </ul>
-        <p class="hc-muted">
-          Additional materials will be added as this section is expanded.
-        </p>
-      </section>
+      <!-- Note -->
+      <div class="hc-note">
+        Access to certain materials may be restricted based on role and
+        authorization.
+      </div>
 
     </div>
   </main>
 
-  <!-- footer comes from your global layout -->
+  <!-- Your existing footer lives below this -->
 
 </body>
 </html>
