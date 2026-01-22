@@ -5,145 +5,159 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Honor Council | Sigma Nu Kappa Rho</title>
 
-  <!-- Page-specific styles -->
+  <!-- Honor Council page styles -->
   <style>
-    /* ===== Honor Council Page ===== */
-
-    .hc-page{
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 6rem 1.5rem 6rem;
+    :root{
+      --bg:#000;
+      --white:#fff;
+      --muted:#cfcfcf;
+      --gold1:#ffd700;
+      --gold2:#ffb02e;
+      --hair:rgba(255,255,255,0.12);
+      --panel:rgba(255,255,255,0.04);
     }
 
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--white);
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    }
+
+    main{
+      background:var(--bg);
+      min-height:100vh;
+      padding:6rem 1.5rem 6rem;
+    }
+
+    /* Header */
     .hc-header{
-      text-align: center;
-      margin-bottom: 4rem;
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 4rem;
     }
 
     .hc-header h1{
-      font-family: "Cinzel", serif;
-      font-size: clamp(2.4rem, 5vw, 3.4rem);
-      margin: 0 0 .5rem;
-      background: linear-gradient(90deg, var(--gold1), var(--gold2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-family:"Cinzel", serif;
+      font-size:clamp(2.4rem,5vw,3.4rem);
+      margin:0 0 .75rem;
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
     .hc-header p{
-      color: #dcdcdc;
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-      opacity: .9;
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.55;
     }
 
-    .hc-sections{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+    /* Grid */
+    .hc-grid{
+      max-width:1000px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:2rem;
     }
 
-    .hc-section{
-      border: 1px solid var(--hair);
-      border-radius: 18px;
-      padding: 2rem 1.75rem 2.25rem;
-      background: rgba(255,255,255,0.02);
-      backdrop-filter: blur(4px);
+    /* Cards */
+    .hc-card{
+      background:var(--panel);
+      border:1px solid var(--hair);
+      border-radius:18px;
+      padding:2rem 1.75rem 2.25rem;
     }
 
-    .hc-section h2{
-      font-family: "DM Serif Display", serif;
-      font-size: 1.45rem;
-      margin: 0 0 .75rem;
-      background: linear-gradient(90deg, var(--gold1), var(--gold2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .hc-card h2{
+      font-family:"DM Serif Display", serif;
+      font-size:1.45rem;
+      margin:0 0 .75rem;
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
-    .hc-section p{
-      color: #e0e0e0;
-      font-size: .98rem;
-      line-height: 1.55;
-      margin-bottom: 1.5rem;
+    .hc-card p{
+      color:#e2e2e2;
+      font-size:.98rem;
+      line-height:1.55;
+      margin-bottom:1.6rem;
     }
 
-    .hc-section a{
-      font-weight: 600;
-      color: var(--gold1);
-      text-decoration: none;
+    .hc-card a{
+      font-weight:600;
+      color:var(--gold1);
+      text-decoration:none;
     }
 
-    .hc-section a:hover{
-      text-decoration: underline;
+    .hc-card a:hover{
+      text-decoration:underline;
     }
 
+    /* Footer note */
     .hc-note{
-      margin-top: 4rem;
-      text-align: center;
-      font-size: .95rem;
-      color: #bdbdbd;
+      max-width:900px;
+      margin:4rem auto 0;
+      text-align:center;
+      font-size:.95rem;
+      color:#b9b9b9;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Your existing header + drawer live above this -->
+  <!-- Your existing site header / drawer can remain above -->
 
-  <main class="hero">
-    <div class="hc-page">
+  <main>
 
-      <!-- Header -->
-      <section class="hc-header">
-        <h1>Honor Council</h1>
+    <section class="hc-header">
+      <h1>Honor Council</h1>
+      <p>
+        Central access point for Honor Council records, documentation,
+        and administrative materials for Sigma Nu Kappa Rho.
+      </p>
+    </section>
+
+    <section class="hc-grid">
+
+      <div class="hc-card">
+        <h2>Meeting Minutes</h2>
         <p>
-          Central access point for Honor Council records, documentation,
-          and administrative materials for Sigma Nu Kappa Rho.
+          Official records of Honor Council meetings, including attendance,
+          motions, decisions, and outcomes.
         </p>
-      </section>
-
-      <!-- Sections -->
-      <section class="hc-sections">
-
-        <div class="hc-section">
-          <h2>Meeting Minutes</h2>
-          <p>
-            Official records of Honor Council meetings, including attendance,
-            motions, decisions, and outcomes.
-          </p>
-          <a href="#">Access Meeting Minutes →</a>
-        </div>
-
-        <div class="hc-section">
-          <h2>Late Dues Records</h2>
-          <p>
-            Records documenting late dues payments, payment plans, and related
-            administrative actions.
-          </p>
-          <a href="#">Access Dues Records →</a>
-        </div>
-
-        <div class="hc-section">
-          <h2>Disciplinary & Sanctions Records</h2>
-          <p>
-            Records of disciplinary actions, sanctions, probationary measures,
-            or other determinations issued by the Honor Council.
-          </p>
-          <a href="#">Access Disciplinary Records →</a>
-        </div>
-
-      </section>
-
-      <!-- Note -->
-      <div class="hc-note">
-        Access to certain materials may be restricted based on role and
-        authorization.
+        <a href="#">Access Meeting Minutes →</a>
       </div>
 
+      <div class="hc-card">
+        <h2>Late Dues Records</h2>
+        <p>
+          Records documenting late dues payments, payment plans, and
+          related administrative actions.
+        </p>
+        <a href="#">Access Dues Records →</a>
+      </div>
+
+      <div class="hc-card">
+        <h2>Disciplinary Records</h2>
+        <p>
+          Records of disciplinary actions, sanctions, probationary measures,
+          or other determinations issued by the Honor Council.
+        </p>
+        <a href="#">Access Disciplinary Records →</a>
+      </div>
+
+    </section>
+
+    <div class="hc-note">
+      Access to certain materials may be restricted based on role and authorization.
     </div>
+
   </main>
 
-  <!-- Your existing footer lives below this -->
+  <!-- Your existing footer can remain below -->
 
 </body>
 </html>
