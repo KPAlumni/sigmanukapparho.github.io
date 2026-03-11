@@ -1,1 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kappa Rho Alumni Careers</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#000;
+      --panel:rgba(255,255,255,0.04);
+      --panel-strong:rgba(255,255,255,0.06);
+      --white:#fff;
+      --muted:#d6d6d6;
+      --gold1:#ffd700;
+      --gold2:#ffb02e;
+      --hair:rgba(255,255,255,0.10);
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --max:1180px;
+    }
 
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--white);
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before,
+    body::after{
+      content:"";
+      position:fixed;
+      z-index:-2;
+      border-radius:50%;
+      filter:blur(95px);
+      pointer-events:none;
+      opacity:.55;
+    }
+    body::before{
+      width:680px;height:680px;left:-180px;top:-160px;
+      background:radial-gradient(circle, rgba(255,215,0,.28), transparent 70%);
+      animation:floatGlow1 24s ease-in-out infinite;
+    }
+    body::after{
+      width:540px;height:540px;right:-180px;bottom:-180px;
+      background:radial-gradient(circle, rgba(255,176,46,.18), transparent 70%);
+      animation:floatGlow2 28s ease-in-out infinite;
+    }
+    @keyframes floatGlow1{0%,100%{transform:translate(0,0)}50%{transform:translate(120px,100px)}}
+    @keyframes floatGlow2{0%,100%{transform:translate(0,0)}50%{transform:translate(-100px,-90px)}}
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(0,0,0,.92), rgba(0,0,0,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:16px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
+    .brand-top{
+      font-family:"Cinzel",serif;
+      font-size:1.1rem;
+      letter-spacing:.08em;
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .brand-sub{
+      font-size:.84rem;
+      color:#d7d7d7;
+      letter-spacing:.04em;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+    .nav-links a{
+      color:#ececec;
+      font-size:.96rem;
+      transition:color .2s ease, transform .2s ease;
+    }
+    .nav-links a:hover{color:#fff;transform:translateY(-1px)}
+    .nav-cta{
+      padding:11px 18px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
+      color:#000;
+      font-weight:700;
+      box-shadow:0 0 20px rgba(255,215,0,.22);
+    }
+
+    .hero{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:84px 22px 56px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:34px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border:1px solid var(--hair);
+      border-radius:999px;
+      color:#ededed;
+      background:rgba(255,255,255,.03);
+      font-size:.9rem;
+      margin-bottom:18px;
+    }
+    .eyebrow::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:linear-gradient(180deg,var(--gold1),var(--gold2));
+      box-shadow:0 0 12px rgba(255,215,0,.5);
+    }
+    .hero h1{
+      margin:0 0 16px;
+      font-family:"Cinzel",serif;
+      font-size:clamp(2.6rem,5.5vw,4.6rem);
+      line-height:1.04;
+      letter-spacing:.02em;
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 18px rgba(255,215,0,.15);
+    }
+    .hero p{
+      margin:0;
+      color:#e3e3e3;
+      font-size:1.08rem;
+      line-height:1.75;
+      max-width:680px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 20px;
+      border-radius:999px;
+      font-weight:700;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn.gold{
+      color:#000;
+      background:linear-gradient(90deg,var(--gold1),var(--gold2));
+      box-shadow:0 0 24px rgba(255,215,0,.24);
+    }
+    .btn.ghost{
+      border:1px solid rgba(255,255,255,.14);
+      color:#f2f2f2;
+      background:rgba(255,255,255,.03);
+    }
+
+    .hero-card{
+      position:relative;
+      padding:26px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -70px -90px auto;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,215,0,.25), transparent 70%);
+      filter:blur(24px);
+    }
+    .hero-card-title{
+      font-family:"DM Serif Display",serif;
+      font-size:1.45rem;
+      margin:0 0 10px;
+    }
+    .hero-card-sub{
+      color:#d7d7d7;
+      line-height:1.7;
+      font-size:.98rem;
+      margin:0 0 22px;
+      max-width:420px;
+    }
+    .mini-list{
+      display:grid;
+      gap:12px;
+    }
+    .mini-item{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      padding:14px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .mini-icon{
+      flex:0 0 38px;
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:#000;
+      font-weight:800;
+      background:linear-gradient(180deg,var(--gold1),var(--gold2));
+    }
+    .mini-item strong{display:block;margin-bottom:4px}
+    .mini-item span{color:#d0d0d0;font-size:.94rem;line-height:1.55}
+
+    .section{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:20px 22px 24px;
+    }
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:22px;
+    }
+    .section-head h2{
+      margin:0;
+      font-family:"DM Serif Display",serif;
+      font-size:2rem;
+    }
+    .section-head p{
+      margin:8px 0 0;
+      max-width:720px;
+      color:#dadada;
+      line-height:1.7;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .card{
+      padding:22px;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+    }
+    .card-number{
+      font-family:"Cinzel",serif;
+      font-size:1.1rem;
+      color:#0b0b0b;
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:linear-gradient(180deg,var(--gold1),var(--gold2));
+      margin-bottom:16px;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.14rem;
+    }
+    .card p{
+      margin:0;
+      color:#d5d5d5;
+      line-height:1.7;
+      font-size:.97rem;
+    }
+
+    .opportunities{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .opportunity{
+      position:relative;
+      overflow:hidden;
+    }
+    .badge{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      color:#f3f3f3;
+      font-size:.82rem;
+      margin-bottom:14px;
+      background:rgba(255,255,255,.03);
+    }
+    .opportunity h3{margin:0 0 10px;font-size:1.2rem}
+    .opportunity ul{
+      margin:0;
+      padding-left:18px;
+      color:#d8d8d8;
+      line-height:1.75;
+    }
+
+    .cta-band{
+      max-width:var(--max);
+      margin:24px auto 60px;
+      padding:0 22px;
+    }
+    .cta-wrap{
+      padding:28px;
+      border-radius:28px;
+      background:linear-gradient(135deg, rgba(255,215,0,.12), rgba(255,176,46,.06), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+    .cta-wrap h2{
+      margin:0 0 8px;
+      font-family:"DM Serif Display",serif;
+      font-size:1.95rem;
+    }
+    .cta-wrap p{
+      margin:0;
+      color:#dfdfdf;
+      line-height:1.7;
+      max-width:700px;
+    }
+
+    footer{
+      padding:26px 22px 44px;
+      text-align:center;
+      color:#bdbdbd;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,0));
+    }
+
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr; padding-top:66px}
+      .grid-3,.opportunities{grid-template-columns:1fr}
+      .section-head{display:block}
+      .nav{align-items:flex-start;flex-direction:column}
+      .nav-links{gap:14px}
+    }
+
+    @media (max-width: 640px){
+      .hero h1{font-size:2.5rem}
+      .hero p{font-size:1rem}
+      .hero-card,.card,.cta-wrap{padding:20px}
+      .btn{width:100%}
+      .hero-actions{display:grid;grid-template-columns:1fr}
+      .nav-links{width:100%;display:grid;grid-template-columns:1fr 1fr}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{animation:none !important;transition:none !important}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-top">Kappa Rho Alumni Careers</div>
+        <div class="brand-sub">Sigma Nu · UC San Diego</div>
+      </div>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#resources">Resources</a>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#network">Network</a>
+        <a href="#connect" class="nav-cta">Get Involved</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Built for Kappa Rho alumni</div>
+        <h1>Open doors for the next generation of Kappa Rho.</h1>
+        <p>
+          A dedicated alumni career hub to connect brothers across industries, spotlight open roles, share professional advice,
+          and strengthen the pipeline from chapter life to long-term success after graduation.
+        </p>
+        <div class="hero-actions">
+          <a class="btn gold" href="#opportunities">Post or Share Opportunities</a>
+          <a class="btn ghost" href="#network">Join the Alumni Network</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Career hub overview">
+        <h2 class="hero-card-title">What this page can do</h2>
+        <p class="hero-card-sub">
+          Use this landing page as the front door for internships, full-time roles, mentorship, referrals, and alumni professional spotlights.
+        </p>
+        <div class="mini-list">
+          <div class="mini-item">
+            <div class="mini-icon">1</div>
+            <div>
+              <strong>Career Opportunities</strong>
+              <span>Highlight internships, entry-level openings, and experienced roles from alumni-friendly employers.</span>
+            </div>
+          </div>
+          <div class="mini-item">
+            <div class="mini-icon">2</div>
+            <div>
+              <strong>Mentorship & Advice</strong>
+              <span>Create an easy pathway for alumni to offer resume reviews, interview prep, and career conversations.</span>
+            </div>
+          </div>
+          <div class="mini-item">
+            <div class="mini-icon">3</div>
+            <div>
+              <strong>Professional Community</strong>
+              <span>Keep brothers connected across industries while reinforcing the long-term value of the Kappa Rho network.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="section-head">
+        <div>
+          <h2>Core career resources</h2>
+          <p>These sections give alumni and undergraduates a clear place to start, whether they are hiring, searching, mentoring, or looking to reconnect professionally.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-number">01</div>
+          <h3>Job Board</h3>
+          <p>Feature curated alumni-submitted openings by industry, company, graduation year, location, and experience level.</p>
+        </article>
+        <article class="card">
+          <div class="card-number">02</div>
+          <h3>Mentor Directory</h3>
+          <p>Allow alumni to volunteer as mentors for quick calls, mock interviews, networking introductions, and long-term guidance.</p>
+        </article>
+        <article class="card">
+          <div class="card-number">03</div>
+          <h3>Career Spotlights</h3>
+          <p>Showcase alumni journeys so students can see real pathways from Kappa Rho into business, tech, healthcare, law, finance, and more.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="opportunities">
+      <div class="section-head">
+        <div>
+          <h2>Featured opportunities</h2>
+          <p>You can swap these sample cards with real opportunities, a Google Form intake, an Airtable embed, or links to an external alumni database.</p>
+        </div>
+      </div>
+      <div class="opportunities">
+        <article class="card opportunity">
+          <span class="badge">Internships</span>
+          <h3>Summer internship pipeline</h3>
+          <ul>
+            <li>Business, finance, operations, and analytics roles</li>
+            <li>Ideal for undergraduates exploring first internships</li>
+            <li>Can link to a form or application spreadsheet</li>
+          </ul>
+        </article>
+        <article class="card opportunity">
+          <span class="badge">Full-Time Roles</span>
+          <h3>Early-career alumni openings</h3>
+          <ul>
+            <li>Entry-level and rotational programs</li>
+            <li>Referrals from recent alumni across industries</li>
+            <li>Great for graduating seniors and recent grads</li>
+          </ul>
+        </article>
+        <article class="card opportunity">
+          <span class="badge">Mentorship</span>
+          <h3>Advice from the network</h3>
+          <ul>
+            <li>Resume feedback and interview preparation</li>
+            <li>Career pivots and graduate school conversations</li>
+            <li>Short informational calls with alumni volunteers</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="network">
+      <div class="section-head">
+        <div>
+          <h2>Why alumni will actually use it</h2>
+          <p>The strongest version of this page feels polished, simple, and useful right away. It should make it easy for alumni to contribute without needing to dig through emails or scattered forms.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-number">A</div>
+          <h3>Low-friction contribution</h3>
+          <p>One button to post a role. One form to volunteer as a mentor. One place to revisit whenever they want to help.</p>
+        </article>
+        <article class="card">
+          <div class="card-number">B</div>
+          <h3>Professional presentation</h3>
+          <p>The page reflects the same premium black-and-gold Kappa Rho aesthetic as the rest of the alumni site while feeling career-focused and credible.</p>
+        </article>
+        <article class="card">
+          <div class="card-number">C</div>
+          <h3>Long-term chapter value</h3>
+          <p>It turns alumni engagement into something tangible: jobs, mentorship, referrals, and stronger brotherhood after graduation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-band" id="connect">
+      <div class="cta-wrap">
+        <div>
+          <h2>Ready to build out the alumni career network?</h2>
+          <p>Replace these buttons with your real forms, newsletter signup, alumni directory, or job submission workflow. This layout is designed to drop directly into your existing Kappa Rho website ecosystem.</p>
+        </div>
+        <div class="hero-actions">
+          <a href="#" class="btn gold">Submit an Opportunity</a>
+          <a href="#" class="btn ghost">Become a Mentor</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Sigma Nu Kappa Rho · Alumni Careers
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
